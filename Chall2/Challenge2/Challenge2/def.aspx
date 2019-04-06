@@ -10,11 +10,11 @@
     <form id="form1" runat="server">
         <div>
             <h1>Simple Calculator</h1>
-            <p>First Value&nbsp;
-                <asp:TextBox ID="firstNum" runat="server" OnTextChanged="FirstNum_TextChanged"></asp:TextBox>
+            <p>First Value&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+                <asp:TextBox ID="firstNum" runat="server" OnTextChanged="FirstNum_TextChanged" Height="20px" Width="20px"></asp:TextBox>
             </p>
-            <p>Second Value&nbsp;
-                <asp:TextBox ID="secText" runat="server" OnTextChanged="SecText_TextChanged"></asp:TextBox>
+            <p>Second Value&nbsp;&nbsp;
+                <asp:TextBox ID="secText" runat="server" OnTextChanged="SecText_TextChanged" Height="20px" Width="20px"></asp:TextBox>
             </p>
             <p>
                 <asp:Button ID="add" runat="server" Text="+" OnClick="add_Click" />
