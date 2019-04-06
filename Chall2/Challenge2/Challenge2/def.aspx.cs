@@ -56,6 +56,7 @@ namespace Challenge2
 
         protected void divide_Click(object sender, EventArgs e)
         {
+            firstNum.Text = "";
             double firstd = double.Parse(firstNum.Text);
             double secondd = double.Parse(secText.Text);
 
