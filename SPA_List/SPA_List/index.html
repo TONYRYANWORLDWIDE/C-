@@ -11,12 +11,12 @@
     <div id="createListDiv">
         <h1>Simple Shopping List</h1>
         <input type="text" id="shoppingListName" placeholder = "NewList" />
-        <button onClick="createShoppingList()">Create </button>
+        <button class = "b1" onClick="createShoppingList()">Create </button>
     </div>
     <div id="shoppingListDiv" style="display:none;">
         <h1 id="shoppingListTitle">New List</h1>
-        <input type= "text" placeholder="New Item" />
-        <button>Add</button>
+        <input id="newItemName" type= "text" placeholder="New Item" />
+        <button onClick="addItem()">Add</button>
         <ul id="shoppingListItems">
             <li>Salad<button>D</button><button>C</button></li>
             <li>Milk<button>D</button><button>C</button></li>

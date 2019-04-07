@@ -5,6 +5,16 @@
     text-align: center;
 }
 
+/*button{
+    float: right;
+    margin: 0px 5px;
+    height: 10px;
+}*/
+.b1{
+    /*height: 10px;*/
+    /*color: red;*/
+}
+
 ul {
     list-style-type: none;
     max-width: 300px;
@@ -15,7 +25,7 @@ li{
     min-height: 20px;
     text-align: left;
     background-color: white;
-    color: #444;
+    color: black;
     padding: 8px;
     margin-bottom: 5px;
 }
@@ -24,3 +34,7 @@ li{
         float: right;
         margin: 0px 5px;
     }
+
+.checked {
+    text-decoration: line-through;
+}
