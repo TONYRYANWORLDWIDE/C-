@@ -79,7 +79,7 @@ function getShoppingListById(id) {
 }
 
 $(document).ready(function () {
-    console.info("ready")
+    console.info("readys")
 
     var pageUrl = window.location.href;
     var idIndex = pageUrl.indexOf("?id=");
