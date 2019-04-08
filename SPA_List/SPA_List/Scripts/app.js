@@ -1,17 +1,26 @@
 ﻿var currentList = {};
 
-function createShoppingList() {
-    currentList.name = $("#shoppingListName").val();
-    currentList.items = new Array();
 
-    //Web Service Call
-
+function showShoppingList() {
     $("#shoppingListTitle").html(currentList.name);
     $("#shoppingListItems").empty();
 
     $("#createListDiv").hide();
     $("#shoppingListDiv").show();
 }
+
+
+function createShoppingList() {
+    currentList.name = $("#shoppingListName").val();
+    currentList.items = new Array();
+
+    //Web Service Call
+
+    showShoppingList();
+
+}
+
+
 
 function addItem() {
     var newItem = {};
@@ -46,9 +55,37 @@ function deleteItem(index) {
 }
 
 function checkItem(index) {
-    $("#item_" + index).addClass("checked");
+    if ($("#item_" + index).hasClass("checked")) {
+        $("#item_" + index).removeClass("checked");
+    }
+    else {
+        $("#item_" + index).addClass("checked");
+    }
+}
+
+function getShoppingListById(id) {
+    console.info(id);
+
+    currentList.name = "Mock Shopping List";
+    currentList.items = [
+        { name: "Milk" },
+        { name: "Bread" },
+        { name: "Cookies" },
+        { name: "Beer" }
+    ];
+
+    showShoppingList();
+    drawItems();
 }
 
 $(document).ready(function () {
     console.info("ready")
+
+    var pageUrl = window.location.href;
+    var idIndex = pageUrl.indexOf("?id=");
+
+    if (idIndex != -1) {
+        getShoppingListById(pageUrl.substring(idIndex + 4));
+    }
+    //console.info(pageUrl);
 });
