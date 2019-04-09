@@ -11839,9 +11839,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\tonyr\\Desktop\\Self Education\\Csharp\\CSharp\\API1\\API Youtube Tutorial\\API Youtube Tutorial.csproj",
-      "projectName": "API Youtube Tutorial",
-      "projectPath": "C:\\Users\\tonyr\\Desktop\\Self Education\\Csharp\\CSharp\\API1\\API Youtube Tutorial\\API Youtube Tutorial.csproj",
+      "projectUniqueName": "C:\\Users\\tonyr\\Desktop\\Self Education\\Csharp\\CSharp\\API1\\API Youtube Tutorial\\APIYoutubeTutorial.csproj",
+      "projectName": "APIYoutubeTutorial",
+      "projectPath": "C:\\Users\\tonyr\\Desktop\\Self Education\\Csharp\\CSharp\\API1\\API Youtube Tutorial\\APIYoutubeTutorial.csproj",
       "packagesPath": "C:\\Users\\tonyr\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\tonyr\\Desktop\\Self Education\\Csharp\\CSharp\\API1\\API Youtube Tutorial\\obj\\",
       "projectStyle": "PackageReference",

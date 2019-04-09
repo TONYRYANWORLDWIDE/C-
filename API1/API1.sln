@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.28729.10
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API1", "API1\API1.csproj", "{B9206938-5D1A-42F1-9488-DAD118862133}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API Youtube Tutorial", "API Youtube Tutorial\API Youtube Tutorial.csproj", "{ECC5D316-216F-4C83-AEF8-E155C623C405}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "APIYoutubeTutorial", "API Youtube Tutorial\APIYoutubeTutorial.csproj", "{ECC5D316-216F-4C83-AEF8-E155C623C405}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
