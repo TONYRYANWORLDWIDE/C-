@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Ctrollers\" />
     <Folder Include="NewFolder\NewFolder\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
