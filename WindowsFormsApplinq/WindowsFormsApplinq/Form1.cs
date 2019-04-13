@@ -15,6 +15,18 @@ namespace WindowsFormsApplinq
         public Form1()
         {
             InitializeComponent();
+            DataClasses1DataContext db = new DataClasses1DataContext();
+            var Bills = from b in db.MonthlyBills
+                        where b.BILL == "Dance"
+                        select b;
+
+            dataGridView1.DataSource = Bills.ToList();
+           
+        }
+
+        private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

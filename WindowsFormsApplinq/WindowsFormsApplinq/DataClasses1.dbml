@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Bills" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Bills;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False" SettingsObjectName="WindowsFormsApplinq.Properties.Settings" SettingsPropertyName="BillsConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.MonthlyBills" Member="MonthlyBills">
+    <Type Name="MonthlyBill">
+      <Column Name="BILL" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="COST" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="Date" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

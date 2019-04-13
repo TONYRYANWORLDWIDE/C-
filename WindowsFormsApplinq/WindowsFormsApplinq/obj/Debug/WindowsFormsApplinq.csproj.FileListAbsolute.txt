@@ -1,0 +1,10 @@
+C:\Users\tonyr\Desktop\Self Education\Csharp\CSharp\CSharp\WindowsFormsApplinq\WindowsFormsApplinq\bin\Debug\WindowsFormsApplinq.exe.config
+C:\Users\tonyr\Desktop\Self Education\Csharp\CSharp\CSharp\WindowsFormsApplinq\WindowsFormsApplinq\bin\Debug\WindowsFormsApplinq.exe
+C:\Users\tonyr\Desktop\Self Education\Csharp\CSharp\CSharp\WindowsFormsApplinq\WindowsFormsApplinq\bin\Debug\WindowsFormsApplinq.pdb
+C:\Users\tonyr\Desktop\Self Education\Csharp\CSharp\CSharp\WindowsFormsApplinq\WindowsFormsApplinq\obj\Debug\WindowsFormsApplinq.csprojAssemblyReference.cache
+C:\Users\tonyr\Desktop\Self Education\Csharp\CSharp\CSharp\WindowsFormsApplinq\WindowsFormsApplinq\obj\Debug\WindowsFormsApplinq.Form1.resources
+C:\Users\tonyr\Desktop\Self Education\Csharp\CSharp\CSharp\WindowsFormsApplinq\WindowsFormsApplinq\obj\Debug\WindowsFormsApplinq.Properties.Resources.resources
+C:\Users\tonyr\Desktop\Self Education\Csharp\CSharp\CSharp\WindowsFormsApplinq\WindowsFormsApplinq\obj\Debug\WindowsFormsApplinq.csproj.GenerateResource.cache
+C:\Users\tonyr\Desktop\Self Education\Csharp\CSharp\CSharp\WindowsFormsApplinq\WindowsFormsApplinq\obj\Debug\WindowsFormsApplinq.csproj.CoreCompileInputs.cache
+C:\Users\tonyr\Desktop\Self Education\Csharp\CSharp\CSharp\WindowsFormsApplinq\WindowsFormsApplinq\obj\Debug\WindowsFormsApplinq.exe
+C:\Users\tonyr\Desktop\Self Education\Csharp\CSharp\CSharp\WindowsFormsApplinq\WindowsFormsApplinq\obj\Debug\WindowsFormsApplinq.pdb
