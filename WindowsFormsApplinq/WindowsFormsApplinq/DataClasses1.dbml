@@ -2,9 +2,9 @@
   <Connection Mode="AppSettings" ConnectionString="Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Bills;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False" SettingsObjectName="WindowsFormsApplinq.Properties.Settings" SettingsPropertyName="BillsConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.MonthlyBills" Member="MonthlyBills">
     <Type Name="MonthlyBill">
-      <Column Name="BILL" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="COST" Type="System.Single" DbType="Real" CanBeNull="true" />
-      <Column Name="Date" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="BILL" AutoSync="OnUpdate" Type="System.String" DbType="VarChar(50)" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="COST" AutoSync="OnUpdate" Type="System.Single" DbType="Real" CanBeNull="false" />
+      <Column Name="Date" AutoSync="OnUpdate" Type="System.String" DbType="VarChar(2)" CanBeNull="false" />
     </Type>
   </Table>
 </Database>

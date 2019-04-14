@@ -30,6 +30,9 @@ namespace WindowsFormsApplinq
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
+    partial void InsertMonthlyBill(MonthlyBill instance);
+    partial void UpdateMonthlyBill(MonthlyBill instance);
+    partial void DeleteMonthlyBill(MonthlyBill instance);
     #endregion
 		
 		public DataClasses1DataContext() : 
@@ -72,20 +75,36 @@ namespace WindowsFormsApplinq
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.MonthlyBills")]
-	public partial class MonthlyBill
+	public partial class MonthlyBill : INotifyPropertyChanging, INotifyPropertyChanged
 	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
 		private string _BILL;
 		
-		private System.Nullable<float> _COST;
+		private float _COST;
 		
 		private string _Date;
 		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnBILLChanging(string value);
+    partial void OnBILLChanged();
+
+    partial void OnCOSTChanging(float value);
+    partial void OnCOSTChanged();
+    partial void OnDateChanging(string value);
+    partial void OnDateChanged();
+    #endregion
+		
 		public MonthlyBill()
 		{
+			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BILL", DbType="VarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BILL", AutoSync=AutoSync.OnUpdate, DbType="VarChar(50)", CanBeNull=false, IsPrimaryKey=true)]
 		public string BILL
 		{
 			get
@@ -96,13 +115,17 @@ namespace WindowsFormsApplinq
 			{
 				if ((this._BILL != value))
 				{
+					this.OnBILLChanging(value);
+					this.SendPropertyChanging();
 					this._BILL = value;
+					this.SendPropertyChanged("BILL");
+					this.OnBILLChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COST", DbType="Real")]
-		public System.Nullable<float> COST
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COST", AutoSync=AutoSync.OnUpdate, DbType="Real")]
+		public float COST
 		{
 			get
 			{
@@ -112,12 +135,16 @@ namespace WindowsFormsApplinq
 			{
 				if ((this._COST != value))
 				{
+					this.OnCOSTChanging(value);
+					this.SendPropertyChanging();
 					this._COST = value;
+					this.SendPropertyChanged("COST");
+					this.OnCOSTChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="VarChar(2)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", AutoSync=AutoSync.OnUpdate, DbType="VarChar(2)", CanBeNull=false)]
 		public string Date
 		{
 			get
@@ -128,8 +155,32 @@ namespace WindowsFormsApplinq
 			{
 				if ((this._Date != value))
 				{
+					this.OnDateChanging(value);
+					this.SendPropertyChanging();
 					this._Date = value;
+					this.SendPropertyChanged("Date");
+					this.OnDateChanged();
 				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
