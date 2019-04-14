@@ -26,7 +26,16 @@ namespace WindowsFormsApplinq
 
         private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            DataClasses1DataContext db = new DataClasses1DataContext();
 
+            MonthlyBill Abill = new MonthlyBill();
+
+            //Abill.BILL = "Raising";
+            //Abill.COST = 50;
+            //Abill.Date = "24";
+
+            //db.GetTable<MonthlyBill>().InsertOnSubmit(Abill);
+            //db.SubmitChanges();
         }
     }
 }
