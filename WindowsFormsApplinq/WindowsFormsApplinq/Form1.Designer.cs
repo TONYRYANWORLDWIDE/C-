@@ -35,6 +35,8 @@
             // 
             // DataGrid
             // 
+            this.DataGrid.AllowUserToOrderColumns = true;
+            this.DataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGrid.Location = new System.Drawing.Point(61, 33);
             this.DataGrid.Name = "DataGrid";

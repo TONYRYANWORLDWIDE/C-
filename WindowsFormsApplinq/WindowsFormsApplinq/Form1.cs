@@ -16,6 +16,7 @@ namespace WindowsFormsApplinq
         public Form1()
         {
             InitializeComponent();
+            //DataGrid.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.Fill);
             DataClasses1DataContext db = new DataClasses1DataContext();
             var Bills = from b in db.MonthlyBills
                         //where b.BILL == "Dance"
@@ -23,6 +24,7 @@ namespace WindowsFormsApplinq
 
             //DataGrid.DataSource = Bills.ToList();
             DataGrid.DataSource = db.MonthlyBills;
+            
 
 
 
@@ -63,12 +65,10 @@ namespace WindowsFormsApplinq
                 foreach (var row in update)
 
                 {
-
                     row.BILL = Convert.ToString(DataGrid.Rows[rowindex].Cells[0].Value);
                     row.COST = Convert.ToSingle(DataGrid.Rows[rowindex].Cells[1].Value);
                     row.Date = Convert.ToString(DataGrid.Rows[rowindex].Cells[2].Value);
                     DC.SubmitChanges(); // here will submitchanges function call and queries will automatic call.
-
                 }
 
                 MessageBox.Show("Updated");
