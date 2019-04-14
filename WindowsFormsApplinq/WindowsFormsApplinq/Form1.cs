@@ -17,7 +17,7 @@ namespace WindowsFormsApplinq
             InitializeComponent();
             DataClasses1DataContext db = new DataClasses1DataContext();
             var Bills = from b in db.MonthlyBills
-                        where b.BILL == "Dance"
+                        //where b.BILL == "Dance"
                         select b;
 
             dataGridView1.DataSource = Bills.ToList();
