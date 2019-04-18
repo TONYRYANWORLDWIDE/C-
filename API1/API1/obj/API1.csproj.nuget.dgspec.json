@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\tonyr\\Desktop\\Self Education\\Csharp\\CSharp\\API1\\API1\\API1.csproj": {}
+    "C:\\Users\\tonyr\\Desktop\\Self Education\\Csharp\\CSharp\\CSharp\\API1\\API1\\API1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\tonyr\\Desktop\\Self Education\\Csharp\\CSharp\\API1\\API1\\API1.csproj": {
+    "C:\\Users\\tonyr\\Desktop\\Self Education\\Csharp\\CSharp\\CSharp\\API1\\API1\\API1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tonyr\\Desktop\\Self Education\\Csharp\\CSharp\\API1\\API1\\API1.csproj",
+        "projectUniqueName": "C:\\Users\\tonyr\\Desktop\\Self Education\\Csharp\\CSharp\\CSharp\\API1\\API1\\API1.csproj",
         "projectName": "API1",
-        "projectPath": "C:\\Users\\tonyr\\Desktop\\Self Education\\Csharp\\CSharp\\API1\\API1\\API1.csproj",
+        "projectPath": "C:\\Users\\tonyr\\Desktop\\Self Education\\Csharp\\CSharp\\CSharp\\API1\\API1\\API1.csproj",
         "packagesPath": "C:\\Users\\tonyr\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tonyr\\Desktop\\Self Education\\Csharp\\CSharp\\API1\\API1\\obj\\",
+        "outputPath": "C:\\Users\\tonyr\\Desktop\\Self Education\\Csharp\\CSharp\\CSharp\\API1\\API1\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
