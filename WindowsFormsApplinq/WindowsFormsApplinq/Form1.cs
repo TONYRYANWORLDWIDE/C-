@@ -39,11 +39,6 @@ namespace WindowsFormsApplinq
 
             MessageBox.Show(d.ToString());
 
-            //Abill.BILL = "Raising";
-            //Abill.COST = 50;
-            //Abill.Date = "24";
-
-            //db.GetTable<MonthlyBill>().InsertOnSubmit(Abill);
             db.SubmitChanges();
 
         }
