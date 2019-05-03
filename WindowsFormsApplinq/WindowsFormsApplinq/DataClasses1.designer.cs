@@ -72,6 +72,22 @@ namespace WindowsFormsApplinq
 				return this.GetTable<MonthlyBill>();
 			}
 		}
+		
+		public System.Data.Linq.Table<KeyBalance> KeyBalances
+		{
+			get
+			{
+				return this.GetTable<KeyBalance>();
+			}
+		}
+		
+		public System.Data.Linq.Table<WeeklyBill> WeeklyBills
+		{
+			get
+			{
+				return this.GetTable<WeeklyBill>();
+			}
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.MonthlyBills")]
@@ -92,7 +108,6 @@ namespace WindowsFormsApplinq
     partial void OnCreated();
     partial void OnBILLChanging(string value);
     partial void OnBILLChanged();
-
     partial void OnCOSTChanging(float value);
     partial void OnCOSTChanged();
     partial void OnDateChanging(string value);
@@ -181,6 +196,96 @@ namespace WindowsFormsApplinq
 			if ((this.PropertyChanged != null))
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.KeyBalance")]
+	public partial class KeyBalance
+	{
+		
+		private System.Nullable<decimal> _KeyBalance1;
+		
+		private System.Nullable<System.DateTime> _DateTime;
+		
+		public KeyBalance()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="KeyBalance", Storage="_KeyBalance1", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> KeyBalance1
+		{
+			get
+			{
+				return this._KeyBalance1;
+			}
+			set
+			{
+				if ((this._KeyBalance1 != value))
+				{
+					this._KeyBalance1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateTime", DbType="DateTime")]
+		public System.Nullable<System.DateTime> DateTime
+		{
+			get
+			{
+				return this._DateTime;
+			}
+			set
+			{
+				if ((this._DateTime != value))
+				{
+					this._DateTime = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.WeeklyBills")]
+	public partial class WeeklyBill
+	{
+		
+		private string _Bill;
+		
+		private System.Nullable<float> _Cost;
+		
+		public WeeklyBill()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Bill", DbType="VarChar(50)")]
+		public string Bill
+		{
+			get
+			{
+				return this._Bill;
+			}
+			set
+			{
+				if ((this._Bill != value))
+				{
+					this._Bill = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cost", DbType="Real")]
+		public System.Nullable<float> Cost
+		{
+			get
+			{
+				return this._Cost;
+			}
+			set
+			{
+				if ((this._Cost != value))
+				{
+					this._Cost = value;
+				}
 			}
 		}
 	}

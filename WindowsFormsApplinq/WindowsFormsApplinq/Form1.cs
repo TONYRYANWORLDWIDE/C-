@@ -20,8 +20,20 @@ namespace WindowsFormsApplinq
             var Bills = from b in db.MonthlyBills
                         //where b.BILL == "Dance"
                         select b;
-            DataGrid.DataSource = db.MonthlyBills;        
-                       
+            DataGrid.DataSource = db.MonthlyBills;
+
+            DataClasses1DataContext key = new DataClasses1DataContext();
+            var keybalance = from k in key.KeyBalances
+                            //where b.BILL == "Dance"
+                        select k;
+            DatagridKeyBalance.DataSource = key.KeyBalances;
+
+            DataClasses1DataContext week = new DataClasses1DataContext();
+            var weekly = from w in week.WeeklyBills
+                                 //where b.BILL == "Dance"
+                             select w;
+            DataGridWeeklyBIlls.DataSource = week.WeeklyBills;
+
         }
 
         private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -55,7 +67,28 @@ namespace WindowsFormsApplinq
                     DC.SubmitChanges(); 
                 }
 
-                MessageBox.Show("Updated");
+                var changeset = DC.GetChangeSet();
+
+                int KeyBalanceUpdate;
+                DataClasses1DataContext KY = new DataClasses1DataContext();
+                KeyBalance KeyB = new KeyBalance();
+                int rowindexKey = DatagridKeyBalance.CurrentRow.Index;
+                KeyBalanceUpdate = DatagridKeyBalance.Rows[rowindex].Cells[0].Value;
+
+                var updatekey = from k in KY.KeyBalances
+                                where k.KeyBalance1 == KeyBalanceUpdate
+                                select k;
+
+                foreach (var row in updatekey)
+
+                {
+                    row.KeyBalance1 = Convert.ToString(DatagridKeyBalance.Rows[rowindex].Cells[0].Value);
+                    //row.Date = 
+                    //Convert.ToSingle(DataGrid.Rows[rowindex].Cells[1].Value);
+                    //row.Date = Convert.ToString(DataGrid.Rows[rowindex].Cells[2].Value);
+                    DC.SubmitChanges();
+                }
+            MessageBox.Show("Updated");
                 Refresh();
 
             
@@ -110,6 +143,11 @@ namespace WindowsFormsApplinq
             Refresh();
 
             
+        }
+
+        private void DataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
