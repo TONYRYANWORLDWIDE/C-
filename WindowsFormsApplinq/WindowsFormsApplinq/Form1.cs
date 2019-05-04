@@ -16,24 +16,54 @@ namespace WindowsFormsApplinq
         public Form1()
         {
             InitializeComponent();
+            formload();
+
+        }
+
+        private void formload()
+        {
+
             DataClasses1DataContext db = new DataClasses1DataContext();
             var Bills = from b in db.MonthlyBills
-                        //where b.BILL == "Dance"
+                            //where b.BILL == "Dance"
                         select b;
             DataGrid.DataSource = db.MonthlyBills;
 
             DataClasses2DataContext key = new DataClasses2DataContext();
             var keybalance = from k in key.KeyBalances
-                            //where b.BILL == "Dance"
-                        select k;
+                                 //where b.BILL == "Dance"
+                             select k;
             DatagridKeyBalance.DataSource = key.KeyBalances;
 
             DataClasses1DataContext week = new DataClasses1DataContext();
             var weekly = from w in week.WeeklyBills
-                                 //where b.BILL == "Dance"
-                             select w;
+                             //where b.BILL == "Dance"
+                         select w;
             DataGridWeeklyBIlls.DataSource = week.WeeklyBills;
 
+        }
+
+        private void DataGridview1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            //DataClasses1DataContext db = new DataClasses1DataContext();
+            //MonthlyBill Abill = new MonthlyBill();
+            var editedCell = this.DataGrid.Rows[e.RowIndex].Cells[e.ColumnIndex];
+            var newValue = editedCell.Value;
+            var TheIndex = this.DataGrid.Rows[e.RowIndex].Cells[0].Value;
+            MessageBox.Show(newValue.ToString());
+            MessageBox.Show(TheIndex.ToString());
+
+            DataClasses1DataContext DC1 = new DataClasses1DataContext();
+            var updateTime = from b in DC1.MonthlyBills
+                         where b.BILL == TheIndex.ToString()
+                         select b;
+
+            foreach (var rowz in updateTime)
+
+            {
+                rowz.COST = (float.Parse(editedCell.Value.ToString()));
+                DC1.SubmitChanges();
+            }
         }
 
         private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -68,39 +98,22 @@ namespace WindowsFormsApplinq
             }
 
 
-                float KeyBalanceUpdate;
-                DataClasses2DataContext KY = new DataClasses2DataContext();
-                KeyBalance KeyB = new KeyBalance();
-                int rowindexKey = DatagridKeyBalance.CurrentRow.Index;
+            float KeyBalanceUpdate;
+            DataClasses2DataContext KY = new DataClasses2DataContext();
+            KeyBalance KeyB = new KeyBalance();
+            int rowindexKey = DatagridKeyBalance.CurrentRow.Index;
  
-                KeyBalanceUpdate = float.Parse(DatagridKeyBalance.Rows[0].Cells[0].Value.ToString());
-                KeyBalance BB = KY.KeyBalances
-                .Where(c => c.Placeholder == "X")
-                .Single();
+            KeyBalanceUpdate = float.Parse(DatagridKeyBalance.Rows[0].Cells[0].Value.ToString());
+            KeyBalance BB = KY.KeyBalances
+            .Where(c => c.Placeholder == "X")
+            .Single();
 
-                BB.KeyBalance1 = KeyBalanceUpdate;
-                BB.DateTime = DateTime.Now;
-                //KY.BankBalance2s.Attach(BB);
-                KY.SubmitChanges();
+            BB.KeyBalance1 = KeyBalanceUpdate;
+            BB.DateTime = DateTime.Now;
+            //KY.BankBalance2s.Attach(BB);
+            KY.SubmitChanges();
 
-                //string WE = "";
-                //DataClasses1DataContext Dw = new DataClasses1DataContext();
 
-            //int windex = DataGridWeeklyBIlls.CurrentRow.Index;
-            //WE = DataGridWeeklyBIlls.Rows[windex].Cells[0].Value.ToString();
-
-            //var wupdate = from w in Dw.WeeklyBills
-            //             where w.Bill == WE
-            //             select w;
-
-            //foreach (var wrow in wupdate)
-
-            //{
-            //    wrow.Bill = Convert.ToString(DataGridWeeklyBIlls.Rows[rowindex].Cells[0].Value);
-            //    wrow.Cost = 300;//Convert.ToSingle(DataGridWeeklyBIlls.Rows[rowindex].Cells[1].Value);
-
-            //    Dw.SubmitChanges();
-            //}
             string WE = "";
             float amount;
             DataClasses1DataContext w = new DataClasses1DataContext();
@@ -115,13 +128,12 @@ namespace WindowsFormsApplinq
             .Single();
 
             wb.Cost = amount;
-
-
             w.SubmitChanges();
 
 
             MessageBox.Show("Updated");
-                Refresh();
+            Refresh();
+
 
 
         }
@@ -153,6 +165,9 @@ namespace WindowsFormsApplinq
             Refresh();            
         }
 
+
+
+
         private void BtDelete_Click(object sender, EventArgs e)
         {
 
@@ -178,6 +193,11 @@ namespace WindowsFormsApplinq
         }
 
         private void DataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void DataGridWeeklyBIlls_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
