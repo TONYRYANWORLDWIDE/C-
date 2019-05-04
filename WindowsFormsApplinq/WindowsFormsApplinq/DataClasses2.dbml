@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Bills" Class="DataClasses2DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Bills;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False" SettingsObjectName="WindowsFormsApplinq.Properties.Settings" SettingsPropertyName="BillsConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.KeyBalance" Member="KeyBalances">
+    <Type Name="KeyBalance">
+      <Column Name="KeyBalance" Member="KeyBalance1" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="DateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Placeholder" Type="System.String" DbType="VarChar(1) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+    </Type>
+  </Table>
+</Database>

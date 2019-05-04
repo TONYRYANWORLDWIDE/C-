@@ -22,7 +22,7 @@ namespace WindowsFormsApplinq
                         select b;
             DataGrid.DataSource = db.MonthlyBills;
 
-            DataClasses1DataContext key = new DataClasses1DataContext();
+            DataClasses2DataContext key = new DataClasses2DataContext();
             var keybalance = from k in key.KeyBalances
                             //where b.BILL == "Dance"
                         select k;
@@ -38,60 +38,92 @@ namespace WindowsFormsApplinq
 
         private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataClasses1DataContext db = new DataClasses1DataContext();
-            MonthlyBill Abill = new MonthlyBill();
-            var d = db.GetChangeSet();
-            MessageBox.Show(d.ToString());
-            db.SubmitChanges();
+            //DataClasses1DataContext db = new DataClasses1DataContext();
+            //MonthlyBill Abill = new MonthlyBill();
+            //var d = db.GetChangeSet();
+            //MessageBox.Show(d.ToString());
+            //db.SubmitChanges();
         }
 
         private void BtnSubmit_Click(object sender, EventArgs e)
         {
 
-                string TheBill = "";
-                DataClasses1DataContext DC = new DataClasses1DataContext();
-                MonthlyBill Abill = new MonthlyBill(); 
-                int rowindex = DataGrid.CurrentRow.Index; 
-                TheBill = DataGrid.Rows[rowindex].Cells[0].Value.ToString();
+            string TheBill = "";
+            DataClasses1DataContext DC = new DataClasses1DataContext();
+            MonthlyBill Abill = new MonthlyBill();
+            int rowindex = DataGrid.CurrentRow.Index;
+            TheBill = DataGrid.Rows[rowindex].Cells[0].Value.ToString();
 
-                var update = from b in DC.MonthlyBills
-                             where b.BILL == TheBill
-                             select b;
+            var update = from b in DC.MonthlyBills
+                         where b.BILL == TheBill
+                         select b;
 
-                foreach (var row in update)
+            foreach (var row in update)
 
-                {
-                    row.BILL = Convert.ToString(DataGrid.Rows[rowindex].Cells[0].Value);
-                    row.COST = Convert.ToSingle(DataGrid.Rows[rowindex].Cells[1].Value);
-                    row.Date = Convert.ToString(DataGrid.Rows[rowindex].Cells[2].Value);
-                    DC.SubmitChanges(); 
-                }
+            {
+                row.BILL = Convert.ToString(DataGrid.Rows[rowindex].Cells[0].Value);
+                row.COST = Convert.ToSingle(DataGrid.Rows[rowindex].Cells[1].Value);
+                row.Date = Convert.ToString(DataGrid.Rows[rowindex].Cells[2].Value);
+                DC.SubmitChanges(); 
+            }
 
-                var changeset = DC.GetChangeSet();
 
-                int KeyBalanceUpdate;
-                DataClasses1DataContext KY = new DataClasses1DataContext();
+                float KeyBalanceUpdate;
+                DataClasses2DataContext KY = new DataClasses2DataContext();
                 KeyBalance KeyB = new KeyBalance();
                 int rowindexKey = DatagridKeyBalance.CurrentRow.Index;
-                KeyBalanceUpdate = DatagridKeyBalance.Rows[rowindex].Cells[0].Value;
+ 
+                KeyBalanceUpdate = float.Parse(DatagridKeyBalance.Rows[0].Cells[0].Value.ToString());
+                KeyBalance BB = KY.KeyBalances
+                .Where(c => c.Placeholder == "X")
+                .Single();
 
-                var updatekey = from k in KY.KeyBalances
-                                where k.KeyBalance1 == KeyBalanceUpdate
-                                select k;
+                BB.KeyBalance1 = KeyBalanceUpdate;
+                BB.DateTime = DateTime.Now;
+                //KY.BankBalance2s.Attach(BB);
+                KY.SubmitChanges();
 
-                foreach (var row in updatekey)
+                //string WE = "";
+                //DataClasses1DataContext Dw = new DataClasses1DataContext();
 
-                {
-                    row.KeyBalance1 = Convert.ToString(DatagridKeyBalance.Rows[rowindex].Cells[0].Value);
-                    //row.Date = 
-                    //Convert.ToSingle(DataGrid.Rows[rowindex].Cells[1].Value);
-                    //row.Date = Convert.ToString(DataGrid.Rows[rowindex].Cells[2].Value);
-                    DC.SubmitChanges();
-                }
+            //int windex = DataGridWeeklyBIlls.CurrentRow.Index;
+            //WE = DataGridWeeklyBIlls.Rows[windex].Cells[0].Value.ToString();
+
+            //var wupdate = from w in Dw.WeeklyBills
+            //             where w.Bill == WE
+            //             select w;
+
+            //foreach (var wrow in wupdate)
+
+            //{
+            //    wrow.Bill = Convert.ToString(DataGridWeeklyBIlls.Rows[rowindex].Cells[0].Value);
+            //    wrow.Cost = 300;//Convert.ToSingle(DataGridWeeklyBIlls.Rows[rowindex].Cells[1].Value);
+
+            //    Dw.SubmitChanges();
+            //}
+            string WE = "";
+            float amount;
+            DataClasses1DataContext w = new DataClasses1DataContext();
+            WeeklyBill we = new WeeklyBill();
+            int windex = DataGridWeeklyBIlls.CurrentRow.Index;
+
+            WE = DataGridWeeklyBIlls.Rows[windex].Cells[0].Value.ToString();
+            amount = float.Parse(DataGridWeeklyBIlls.Rows[windex].Cells[1].Value.ToString());
+            WeeklyBill wb = w.WeeklyBills
+            .Where(c => c.Bill == WE)
+            
+            .Single();
+
+            wb.Cost = amount;
+
+
+            w.SubmitChanges();
+
+
             MessageBox.Show("Updated");
                 Refresh();
 
-            
+
         }
 
         private void BtInsert_Click(object sender, EventArgs e)

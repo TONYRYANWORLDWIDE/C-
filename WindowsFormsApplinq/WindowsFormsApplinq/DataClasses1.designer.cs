@@ -33,6 +33,9 @@ namespace WindowsFormsApplinq
     partial void InsertMonthlyBill(MonthlyBill instance);
     partial void UpdateMonthlyBill(MonthlyBill instance);
     partial void DeleteMonthlyBill(MonthlyBill instance);
+    partial void InsertWeeklyBill(WeeklyBill instance);
+    partial void UpdateWeeklyBill(WeeklyBill instance);
+    partial void DeleteWeeklyBill(WeeklyBill instance);
     #endregion
 		
 		public DataClasses1DataContext() : 
@@ -70,14 +73,6 @@ namespace WindowsFormsApplinq
 			get
 			{
 				return this.GetTable<MonthlyBill>();
-			}
-		}
-		
-		public System.Data.Linq.Table<KeyBalance> KeyBalances
-		{
-			get
-			{
-				return this.GetTable<KeyBalance>();
 			}
 		}
 		
@@ -200,64 +195,32 @@ namespace WindowsFormsApplinq
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.KeyBalance")]
-	public partial class KeyBalance
-	{
-		
-		private System.Nullable<decimal> _KeyBalance1;
-		
-		private System.Nullable<System.DateTime> _DateTime;
-		
-		public KeyBalance()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="KeyBalance", Storage="_KeyBalance1", DbType="Decimal(18,2)")]
-		public System.Nullable<decimal> KeyBalance1
-		{
-			get
-			{
-				return this._KeyBalance1;
-			}
-			set
-			{
-				if ((this._KeyBalance1 != value))
-				{
-					this._KeyBalance1 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateTime", DbType="DateTime")]
-		public System.Nullable<System.DateTime> DateTime
-		{
-			get
-			{
-				return this._DateTime;
-			}
-			set
-			{
-				if ((this._DateTime != value))
-				{
-					this._DateTime = value;
-				}
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.WeeklyBills")]
-	public partial class WeeklyBill
+	public partial class WeeklyBill : INotifyPropertyChanging, INotifyPropertyChanged
 	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
 		private string _Bill;
 		
 		private System.Nullable<float> _Cost;
 		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnBillChanging(string value);
+    partial void OnBillChanged();
+    partial void OnCostChanging(System.Nullable<float> value);
+    partial void OnCostChanged();
+    #endregion
+		
 		public WeeklyBill()
 		{
+			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Bill", DbType="VarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Bill", DbType="VarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
 		public string Bill
 		{
 			get
@@ -268,7 +231,11 @@ namespace WindowsFormsApplinq
 			{
 				if ((this._Bill != value))
 				{
+					this.OnBillChanging(value);
+					this.SendPropertyChanging();
 					this._Bill = value;
+					this.SendPropertyChanged("Bill");
+					this.OnBillChanged();
 				}
 			}
 		}
@@ -284,8 +251,32 @@ namespace WindowsFormsApplinq
 			{
 				if ((this._Cost != value))
 				{
+					this.OnCostChanging(value);
+					this.SendPropertyChanging();
 					this._Cost = value;
+					this.SendPropertyChanged("Cost");
+					this.OnCostChanged();
 				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
