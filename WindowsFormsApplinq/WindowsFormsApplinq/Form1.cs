@@ -37,17 +37,13 @@ namespace WindowsFormsApplinq
             DataGrid.DataSource = db.MonthlyBills;
 
             DataClasses2DataContext key = new DataClasses2DataContext();
-            var keybalance = from k in key.KeyBalances
-                                 //where b.bill == "dance"
-                             select k;
+            //var keybalance = from k in key.KeyBalances
+            //                     //where b.bill == "dance"
+            //                 select k;
             DatagridKeyBalance.DataSource = key.KeyBalances;
+            DatagridKeyBalance.Columns[2].Visible = false;
 
-            foreach (var row in keybalance)
-                {
-                //MessageBox.Show(row.ToString());
-                //MessageBox.Show(row.KeyBalance1.ToString());
-                lbKey2.Items.Add(row.KeyBalance1);
-                }
+
             DataClasses1DataContext week = new DataClasses1DataContext();
 
             var weekly = from w in week.WeeklyBills

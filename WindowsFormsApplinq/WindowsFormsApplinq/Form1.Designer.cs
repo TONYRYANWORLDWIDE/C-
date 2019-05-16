@@ -37,7 +37,6 @@
             this.btDelete = new System.Windows.Forms.Button();
             this.DatagridKeyBalance = new System.Windows.Forms.DataGridView();
             this.DataGridWeeklyBIlls = new System.Windows.Forms.DataGridView();
-            this.lbKey2 = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.DataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DatagridKeyBalance)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridWeeklyBIlls)).BeginInit();
@@ -47,6 +46,7 @@
             // 
             this.DataGrid.AllowUserToOrderColumns = true;
             this.DataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -74,7 +74,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.DataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.DataGrid.Size = new System.Drawing.Size(350, 225);
+            this.DataGrid.Size = new System.Drawing.Size(350, 566);
             this.DataGrid.TabIndex = 0;
             this.DataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellContentClick);
             this.DataGrid.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridview1_CellValueChanged);
@@ -114,8 +114,10 @@
             // 
             // DatagridKeyBalance
             // 
-            this.DatagridKeyBalance.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.DatagridKeyBalance.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DatagridKeyBalance.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.DatagridKeyBalance.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DatagridKeyBalance.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.DatagridKeyBalance.Location = new System.Drawing.Point(476, 33);
             this.DatagridKeyBalance.Name = "DatagridKeyBalance";
             this.DatagridKeyBalance.RowTemplate.Height = 24;
@@ -125,6 +127,8 @@
             // 
             // DataGridWeeklyBIlls
             // 
+            this.DataGridWeeklyBIlls.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DataGridWeeklyBIlls.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.DataGridWeeklyBIlls.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGridWeeklyBIlls.Location = new System.Drawing.Point(476, 360);
             this.DataGridWeeklyBIlls.Name = "DataGridWeeklyBIlls";
@@ -133,22 +137,11 @@
             this.DataGridWeeklyBIlls.TabIndex = 5;
             this.DataGridWeeklyBIlls.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridWeeklyBIlls_CellContentClick);
             // 
-            // lbKey2
-            // 
-            this.lbKey2.FormattingEnabled = true;
-            this.lbKey2.ItemHeight = 16;
-            this.lbKey2.Location = new System.Drawing.Point(61, 318);
-            this.lbKey2.Name = "lbKey2";
-            this.lbKey2.Size = new System.Drawing.Size(350, 148);
-            this.lbKey2.TabIndex = 6;
-        
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(949, 707);
-            this.Controls.Add(this.lbKey2);
             this.Controls.Add(this.DataGridWeeklyBIlls);
             this.Controls.Add(this.DatagridKeyBalance);
             this.Controls.Add(this.btDelete);
@@ -173,7 +166,6 @@
         private System.Windows.Forms.Button btDelete;
         private System.Windows.Forms.DataGridView DatagridKeyBalance;
         private System.Windows.Forms.DataGridView DataGridWeeklyBIlls;
-        private System.Windows.Forms.ListBox lbKey2;
     }
 }
 
