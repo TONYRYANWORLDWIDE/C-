@@ -8,3 +8,13 @@ C:\Users\tonyr\Desktop\Self Education\Csharp\CSharp\CSharp\WindowsFormsApplinq\W
 C:\Users\tonyr\Desktop\Self Education\Csharp\CSharp\CSharp\WindowsFormsApplinq\WindowsFormsApplinq\obj\Debug\WindowsFormsApplinq.exe
 C:\Users\tonyr\Desktop\Self Education\Csharp\CSharp\CSharp\WindowsFormsApplinq\WindowsFormsApplinq\obj\Debug\WindowsFormsApplinq.pdb
 C:\Users\tonyr\Desktop\Self Education\Csharp\CSharp\CSharp\WindowsFormsApplinq\WindowsFormsApplinq\obj\Debug\WindowsFormsApplinq.csprojAssemblyReference.cache
+C:\Users\tonyr\Desktop\Self Education\Csharp\CSharp\CSharp\WindowsFormsApplinq\WindowsFormsApplinq\obj\Debug\WindowsFormsApplinq.exe.config
+C:\Users\tonyr\Desktop\Self Education\Csharp\CSharp\CSharp\WindowsFormsApplinq\WindowsFormsApplinq\bin\Debug\Microsoft.SqlServer.ExecProcTask.dll
+C:\Users\tonyr\Desktop\Self Education\Csharp\CSharp\CSharp\WindowsFormsApplinq\WindowsFormsApplinq\bin\Debug\Microsoft.SqlServer.Management.Sdk.Sfc.dll
+C:\Users\tonyr\Desktop\Self Education\Csharp\CSharp\CSharp\WindowsFormsApplinq\WindowsFormsApplinq\bin\Debug\Microsoft.SqlServer.Smo.dll
+C:\Users\tonyr\Desktop\Self Education\Csharp\CSharp\CSharp\WindowsFormsApplinq\WindowsFormsApplinq\bin\Debug\Microsoft.SqlServer.SQLTask.dll
+C:\Users\tonyr\Desktop\Self Education\Csharp\CSharp\CSharp\WindowsFormsApplinq\WindowsFormsApplinq\bin\Debug\Microsoft.SqlServer.ConnectionInfo.dll
+C:\Users\tonyr\Desktop\Self Education\Csharp\CSharp\CSharp\WindowsFormsApplinq\WindowsFormsApplinq\bin\Debug\Microsoft.SqlServer.SqlEnum.dll
+C:\Users\tonyr\Desktop\Self Education\Csharp\CSharp\CSharp\WindowsFormsApplinq\WindowsFormsApplinq\bin\Debug\Microsoft.SqlServer.ServiceBrokerEnum.dll
+C:\Users\tonyr\Desktop\Self Education\Csharp\CSharp\CSharp\WindowsFormsApplinq\WindowsFormsApplinq\bin\Debug\Microsoft.SqlServer.DTSPipelineWrap.dll
+C:\Users\tonyr\Desktop\Self Education\Csharp\CSharp\CSharp\WindowsFormsApplinq\WindowsFormsApplinq\obj\Debug\WindowsFormsApplinq.csproj.CopyComplete

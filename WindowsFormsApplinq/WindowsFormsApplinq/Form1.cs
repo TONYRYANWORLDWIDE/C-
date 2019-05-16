@@ -7,6 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.SqlServer.Management.Sdk;
+using Microsoft.SqlServer.Management.SmoMetadataProvider;
+using Microsoft.SqlServer.Dts.Tasks;
+using Microsoft.SqlServer.Management.IntegrationServices;
+using System.Data.SqlClient;
+using Microsoft.SqlServer;
 
 
 namespace WindowsFormsApplinq
@@ -32,17 +38,43 @@ namespace WindowsFormsApplinq
 
             DataClasses2DataContext key = new DataClasses2DataContext();
             var keybalance = from k in key.KeyBalances
-                                 //where b.BILL == "Dance"
+                                 //where b.bill == "dance"
                              select k;
             DatagridKeyBalance.DataSource = key.KeyBalances;
 
+            foreach (var row in keybalance)
+                {
+                //MessageBox.Show(row.ToString());
+                //MessageBox.Show(row.KeyBalance1.ToString());
+                lbKey2.Items.Add(row.KeyBalance1);
+                }
             DataClasses1DataContext week = new DataClasses1DataContext();
+
             var weekly = from w in week.WeeklyBills
                              //where b.BILL == "Dance"
                          select w;
             DataGridWeeklyBIlls.DataSource = week.WeeklyBills;
 
         }
+        //private void RunPackage()
+        //{
+        //    var connection = new SqlConnection(@"Data Source=(local);Initial Catalog=Bills;Integrated Security=SSPI;");
+        //    var integrationServices = new IntegrationServices(connection);
+        //    string pkgLocation;
+        //    Package pkg;
+        //    Application app;
+        //    DTSExecResult pkgResults;
+
+        //    pkgLocation =
+        //      @"C:\Program Files\Microsoft SQL Server\100\Samples\Integration Services" +
+        //      @"\Package Samples\CalculatedColumns Sample\CalculatedColumns\CalculatedColumns.dtsx";
+        //    app = new Application();
+        //    pkg = app.LoadPackage(pkgLocation, null);
+        //    pkgResults = pkg.Execute();
+
+        //    Console.WriteLine(pkgResults.ToString());
+        //    Console.ReadKey();
+        //}
 
         public void DataGridview1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
@@ -79,6 +111,8 @@ namespace WindowsFormsApplinq
             }
 
         }
+
+        
 
         private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -216,5 +250,7 @@ namespace WindowsFormsApplinq
         {
 
         }
+        
+
     }
 }

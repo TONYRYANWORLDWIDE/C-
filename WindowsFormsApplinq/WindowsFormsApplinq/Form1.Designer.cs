@@ -37,6 +37,7 @@
             this.btDelete = new System.Windows.Forms.Button();
             this.DatagridKeyBalance = new System.Windows.Forms.DataGridView();
             this.DataGridWeeklyBIlls = new System.Windows.Forms.DataGridView();
+            this.lbKey2 = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.DataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DatagridKeyBalance)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridWeeklyBIlls)).BeginInit();
@@ -73,7 +74,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.DataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.DataGrid.Size = new System.Drawing.Size(350, 525);
+            this.DataGrid.Size = new System.Drawing.Size(350, 225);
             this.DataGrid.TabIndex = 0;
             this.DataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellContentClick);
             this.DataGrid.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridview1_CellValueChanged);
@@ -83,7 +84,7 @@
             this.btnSubmit.AutoSize = true;
             this.btnSubmit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnSubmit.ForeColor = System.Drawing.Color.White;
-            this.btnSubmit.Location = new System.Drawing.Point(1061, 603);
+            this.btnSubmit.Location = new System.Drawing.Point(782, 622);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(121, 45);
             this.btnSubmit.TabIndex = 1;
@@ -93,7 +94,7 @@
             // 
             // btInsert
             // 
-            this.btInsert.Location = new System.Drawing.Point(919, 603);
+            this.btInsert.Location = new System.Drawing.Point(623, 622);
             this.btInsert.Name = "btInsert";
             this.btInsert.Size = new System.Drawing.Size(109, 45);
             this.btInsert.TabIndex = 2;
@@ -103,7 +104,7 @@
             // 
             // btDelete
             // 
-            this.btDelete.Location = new System.Drawing.Point(782, 603);
+            this.btDelete.Location = new System.Drawing.Point(476, 622);
             this.btDelete.Name = "btDelete";
             this.btDelete.Size = new System.Drawing.Size(93, 45);
             this.btDelete.TabIndex = 3;
@@ -118,25 +119,36 @@
             this.DatagridKeyBalance.Location = new System.Drawing.Point(476, 33);
             this.DatagridKeyBalance.Name = "DatagridKeyBalance";
             this.DatagridKeyBalance.RowTemplate.Height = 24;
-            this.DatagridKeyBalance.Size = new System.Drawing.Size(346, 135);
+            this.DatagridKeyBalance.Size = new System.Drawing.Size(427, 252);
             this.DatagridKeyBalance.TabIndex = 4;
             this.DatagridKeyBalance.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellContentClick_1);
             // 
             // DataGridWeeklyBIlls
             // 
             this.DataGridWeeklyBIlls.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DataGridWeeklyBIlls.Location = new System.Drawing.Point(476, 244);
+            this.DataGridWeeklyBIlls.Location = new System.Drawing.Point(476, 360);
             this.DataGridWeeklyBIlls.Name = "DataGridWeeklyBIlls";
             this.DataGridWeeklyBIlls.RowTemplate.Height = 24;
-            this.DataGridWeeklyBIlls.Size = new System.Drawing.Size(346, 146);
+            this.DataGridWeeklyBIlls.Size = new System.Drawing.Size(427, 239);
             this.DataGridWeeklyBIlls.TabIndex = 5;
             this.DataGridWeeklyBIlls.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridWeeklyBIlls_CellContentClick);
+            // 
+            // lbKey2
+            // 
+            this.lbKey2.FormattingEnabled = true;
+            this.lbKey2.ItemHeight = 16;
+            this.lbKey2.Location = new System.Drawing.Point(61, 318);
+            this.lbKey2.Name = "lbKey2";
+            this.lbKey2.Size = new System.Drawing.Size(350, 148);
+            this.lbKey2.TabIndex = 6;
+        
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1274, 707);
+            this.ClientSize = new System.Drawing.Size(949, 707);
+            this.Controls.Add(this.lbKey2);
             this.Controls.Add(this.DataGridWeeklyBIlls);
             this.Controls.Add(this.DatagridKeyBalance);
             this.Controls.Add(this.btDelete);
@@ -161,6 +173,7 @@
         private System.Windows.Forms.Button btDelete;
         private System.Windows.Forms.DataGridView DatagridKeyBalance;
         private System.Windows.Forms.DataGridView DataGridWeeklyBIlls;
+        private System.Windows.Forms.ListBox lbKey2;
     }
 }
 
