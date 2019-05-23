@@ -36,6 +36,9 @@ namespace WindowsFormsApplinq
     partial void InsertWeeklyBill(WeeklyBill instance);
     partial void UpdateWeeklyBill(WeeklyBill instance);
     partial void DeleteWeeklyBill(WeeklyBill instance);
+    partial void InsertBringHomePay(BringHomePay instance);
+    partial void UpdateBringHomePay(BringHomePay instance);
+    partial void DeleteBringHomePay(BringHomePay instance);
     #endregion
 		
 		public DataClasses1DataContext() : 
@@ -81,6 +84,14 @@ namespace WindowsFormsApplinq
 			get
 			{
 				return this.GetTable<WeeklyBill>();
+			}
+		}
+		
+		public System.Data.Linq.Table<BringHomePay> BringHomePays
+		{
+			get
+			{
+				return this.GetTable<BringHomePay>();
 			}
 		}
 	}
@@ -256,6 +267,92 @@ namespace WindowsFormsApplinq
 					this._Cost = value;
 					this.SendPropertyChanged("Cost");
 					this.OnCostChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.BringHomePay")]
+	public partial class BringHomePay : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _Name;
+		
+		private System.Nullable<float> _Amount;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    partial void OnAmountChanging(System.Nullable<float> value);
+    partial void OnAmountChanged();
+    #endregion
+		
+		public BringHomePay()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="VarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this.OnNameChanging(value);
+					this.SendPropertyChanging();
+					this._Name = value;
+					this.SendPropertyChanged("Name");
+					this.OnNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Amount", DbType="Decimal(18,2)")]
+		public System.Nullable<float> Amount
+		{
+			get
+			{
+				return this._Amount;
+			}
+			set
+			{
+				if ((this._Amount != value))
+				{
+					this.OnAmountChanging(value);
+					this.SendPropertyChanging();
+					this._Amount = value;
+					this.SendPropertyChanged("Amount");
+					this.OnAmountChanged();
 				}
 			}
 		}

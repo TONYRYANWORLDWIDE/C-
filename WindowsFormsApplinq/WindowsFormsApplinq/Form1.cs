@@ -20,21 +20,20 @@ namespace WindowsFormsApplinq
     public partial class Form1 : Form
     {
         public DataClasses1DataContext DC1 = new DataClasses1DataContext();
+
         public Form1()
         {
             InitializeComponent();
             formload();
-
         }
 
         private void formload()
         {
-
             DataClasses1DataContext db = new DataClasses1DataContext();
             var Bills = from b in db.MonthlyBills
                             //where b.BILL == "Dance"
                         select b;
-            DataGrid.DataSource = db.MonthlyBills;
+            dgMonthly.DataSource = db.MonthlyBills;
 
             DataClasses2DataContext key = new DataClasses2DataContext();
             //var keybalance = from k in key.KeyBalances
@@ -43,53 +42,29 @@ namespace WindowsFormsApplinq
             DatagridKeyBalance.DataSource = key.KeyBalances;
             DatagridKeyBalance.Columns[2].Visible = false;
 
-
             DataClasses1DataContext week = new DataClasses1DataContext();
-
             var weekly = from w in week.WeeklyBills
                              //where b.BILL == "Dance"
                          select w;
             DataGridWeeklyBIlls.DataSource = week.WeeklyBills;
 
+            DataClasses1DataContext bringHome = new DataClasses1DataContext();
+            var bh = from br in bringHome.BringHomePays
+                             //where b.BILL == "Dance"
+                         select br;
+            dgBringHome.DataSource = bringHome.BringHomePays;
         }
-        //private void RunPackage()
-        //{
-        //    var connection = new SqlConnection(@"Data Source=(local);Initial Catalog=Bills;Integrated Security=SSPI;");
-        //    var integrationServices = new IntegrationServices(connection);
-        //    string pkgLocation;
-        //    Package pkg;
-        //    Application app;
-        //    DTSExecResult pkgResults;
-
-        //    pkgLocation =
-        //      @"C:\Program Files\Microsoft SQL Server\100\Samples\Integration Services" +
-        //      @"\Package Samples\CalculatedColumns Sample\CalculatedColumns\CalculatedColumns.dtsx";
-        //    app = new Application();
-        //    pkg = app.LoadPackage(pkgLocation, null);
-        //    pkgResults = pkg.Execute();
-
-        //    Console.WriteLine(pkgResults.ToString());
-        //    Console.ReadKey();
-        //}
-
         public void DataGridview1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             //DataClasses1DataContext db = new DataClasses1DataContext();
             //MonthlyBill Abill = new MonthlyBill();
             //MessageBox.Show(e.ColumnIndex.ToString());
-            var editedCell = this.DataGrid.Rows[e.RowIndex].Cells[e.ColumnIndex];
+            var editedCell = this.dgMonthly.Rows[e.RowIndex].Cells[e.ColumnIndex];
             var newValue = editedCell.Value;
-            var TheIndex = this.DataGrid.Rows[e.RowIndex].Cells[0].Value;
-            //MessageBox.Show(newValue.ToString());
-            //MessageBox.Show(TheIndex.ToString());
-
-            
-            //DataClasses1DataContext DC1 = new DataClasses1DataContext();
-            
+            var TheIndex = this.dgMonthly.Rows[e.RowIndex].Cells[0].Value;          
             var updateTime = from b in DC1.MonthlyBills
                          where b.BILL == TheIndex.ToString()
                          select b;
-
             foreach (var rowz in updateTime)
 
             {
@@ -107,10 +82,40 @@ namespace WindowsFormsApplinq
             }
 
         }
+        public void dgBringHomeValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            DataClasses1DataContext bh = new DataClasses1DataContext();
+            //MonthlyBill Abill = new MonthlyBill();
+            //MessageBox.Show(e.ColumnIndex.ToString());
+            if (e.RowIndex < 0)
+            {
+                return;
+            }
 
-        
 
-        private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+            var editedCell = this.dgBringHome.Rows[e.RowIndex].Cells[e.ColumnIndex];
+            var newValue = editedCell.Value;
+            var TheIndex = this.dgBringHome.Rows[e.RowIndex].Cells[0].Value;
+            var updateBringHome = from b in DC1.BringHomePays
+                                  where b.Name == TheIndex.ToString()
+                                  select b;
+            foreach (var rowzies in updateBringHome)
+
+            {
+                if (e.ColumnIndex.ToString() == "0")
+                {
+                    rowzies.Name = (editedCell.Value.ToString());
+                    //MessageBox.Show("Cost");
+                }
+                else if (e.ColumnIndex.ToString() == "1")
+                {
+                    rowzies.Amount = (int.Parse(editedCell.Value.ToString()));
+                }
+            }
+
+        }
+
+            private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             //DataClasses1DataContext db = new DataClasses1DataContext();
             //MonthlyBill Abill = new MonthlyBill();
@@ -169,37 +174,38 @@ namespace WindowsFormsApplinq
             amount = float.Parse(DataGridWeeklyBIlls.Rows[windex].Cells[1].Value.ToString());
             WeeklyBill wb = w.WeeklyBills
             .Where(c => c.Bill == WE)
-
             .Single();
-
             wb.Cost = amount;
             w.SubmitChanges();
 
+            float bh;
+            string thename;
+            DataClasses1DataContext Bringit = new DataClasses1DataContext();
+            BringHomePay BRHOME = new BringHomePay();
+            int bindex = dgBringHome.CurrentRow.Index;
 
-            MessageBox.Show("Updated");
-            Refresh();
-
-
-
-        }
-
-        private void BtInsert_Click(object sender, EventArgs e)
-        {
+            thename = dgBringHome.Rows[bindex].Cells[0].Value.ToString();
+            bh = float.Parse(dgBringHome.Rows[bindex].Cells[1].Value.ToString());
+            BringHomePay brh = Bringit.BringHomePays
+            .Where(c => c.Name == thename)
+            .Single();
+            brh.Amount = bh;
+            Bringit.SubmitChanges();
 
 
             string TheBill = "";
             DataClasses1DataContext DC = new DataClasses1DataContext();
             MonthlyBill Abill = new MonthlyBill();
-            int rowindex = DataGrid.CurrentRow.Index;
-            TheBill = DataGrid.Rows[rowindex].Cells[0].Value.ToString();
+            int rowindex = dgMonthly.CurrentRow.Index;
+            TheBill = dgMonthly.Rows[rowindex].Cells[0].Value.ToString();
 
             var update = from b in DC.MonthlyBills
                          where b.BILL == TheBill
                          select b;
 
-            Abill.BILL = Convert.ToString(DataGrid.Rows[rowindex].Cells[0].Value);
-            Abill.COST = Convert.ToSingle(DataGrid.Rows[rowindex].Cells[1].Value);
-            Abill.Date = Convert.ToString(DataGrid.Rows[rowindex].Cells[2].Value);
+            Abill.BILL = Convert.ToString(dgMonthly.Rows[rowindex].Cells[0].Value);
+            Abill.COST = Convert.ToSingle(dgMonthly.Rows[rowindex].Cells[1].Value);
+            Abill.Date = Convert.ToString(dgMonthly.Rows[rowindex].Cells[2].Value);
             DC.SubmitChanges(); 
 
 
@@ -220,8 +226,8 @@ namespace WindowsFormsApplinq
             string TheBill = "";
             DataClasses1DataContext DC = new DataClasses1DataContext();
             MonthlyBill Abill = new MonthlyBill();
-            int rowindex = DataGrid.CurrentRow.Index;
-            TheBill = DataGrid.Rows[rowindex].Cells[0].Value.ToString();
+            int rowindex = dgMonthly.CurrentRow.Index;
+            TheBill = dgMonthly.Rows[rowindex].Cells[0].Value.ToString();
 
             var delete = from b in DC.MonthlyBills
                          where b.BILL == TheBill
@@ -246,7 +252,12 @@ namespace WindowsFormsApplinq
         {
 
         }
-        
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'billsDataSet.BringHomePay' table. You can move, or remove it, as needed.
+            this.bringHomePayTableAdapter.Fill(this.billsDataSet.BringHomePay);
+
+        }
     }
 }

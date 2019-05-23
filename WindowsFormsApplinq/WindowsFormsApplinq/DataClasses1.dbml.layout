@@ -8,10 +8,16 @@
         <elementListCompartment Id="a3ae5c57-1b6b-403d-837b-cfcdc6353efd" absoluteBounds="2.015, 2.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="96cee989-d702-4ab0-85c9-bb2526dacb95" absoluteBounds="6, 2.25, 2, 1.1939925130208333">
+    <classShape Id="96cee989-d702-4ab0-85c9-bb2526dacb95" absoluteBounds="4.5, 1.875, 2, 1.1939925130208333">
       <DataClassMoniker Name="/DataClasses1DataContext/WeeklyBill" />
       <nestedChildShapes>
-        <elementListCompartment Id="f67db2c5-c128-4640-bab5-b79dbbe3607c" absoluteBounds="6.015, 2.71, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="f67db2c5-c128-4640-bab5-b79dbbe3607c" absoluteBounds="4.515, 2.335, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c3b271cd-5f83-4993-90c8-bb97b0cb7f03" absoluteBounds="1.375, 4.625, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/DataClasses1DataContext/BringHomePay" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c33a1a8a-20f3-4c86-a24f-09c0abc71bf0" absoluteBounds="1.3900000000000001, 5.085, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

@@ -13,4 +13,10 @@
       <Column Name="Cost" Type="System.Single" DbType="Real" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.BringHomePay" Member="BringHomePays">
+    <Type Name="BringHomePay">
+      <Column Name="Name" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Amount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+    </Type>
+  </Table>
 </Database>
