@@ -128,24 +128,24 @@ namespace WindowsFormsApplinq
         {
             DC1.SubmitChanges();
 
-            //string TheBill = "";
-            //DataClasses1DataContext DC = new DataClasses1DataContext();
-            //MonthlyBill Abill = new MonthlyBill();
-            //int rowindex = DataGrid.CurrentRow.Index;
-            //TheBill = DataGrid.Rows[rowindex].Cells[0].Value.ToString();
+            string TheBill = "";
+            DataClasses1DataContext DC = new DataClasses1DataContext();
+            MonthlyBill Abill = new MonthlyBill();
+            int rowindex = dgMonthly.CurrentRow.Index;
+            TheBill = dgMonthly.Rows[rowindex].Cells[0].Value.ToString();
 
-            //var update = from b in DC.MonthlyBills
-            //             where b.BILL == TheBill
-            //             select b;
+            var update = from b in DC.MonthlyBills
+                         where b.BILL == TheBill
+                         select b;
 
-            //foreach (var row in update)
+            foreach (var row in update)
 
-            //{
-            //    row.BILL = Convert.ToString(DataGrid.Rows[rowindex].Cells[0].Value);
-            //    row.COST = Convert.ToSingle(DataGrid.Rows[rowindex].Cells[1].Value);
-            //    row.Date = Convert.ToString(DataGrid.Rows[rowindex].Cells[2].Value);
-            //    DC.SubmitChanges(); 
-            //}
+            {
+                row.BILL = Convert.ToString(dgMonthly.Rows[rowindex].Cells[0].Value);
+                row.COST = Convert.ToSingle(dgMonthly.Rows[rowindex].Cells[1].Value);
+                row.Date = Convert.ToString(dgMonthly.Rows[rowindex].Cells[2].Value);
+                DC.SubmitChanges();
+            }
 
 
             float KeyBalanceUpdate;
@@ -193,27 +193,28 @@ namespace WindowsFormsApplinq
             Bringit.SubmitChanges();
 
 
-            string TheBill = "";
-            DataClasses1DataContext DC = new DataClasses1DataContext();
-            MonthlyBill Abill = new MonthlyBill();
-            int rowindex = dgMonthly.CurrentRow.Index;
-            TheBill = dgMonthly.Rows[rowindex].Cells[0].Value.ToString();
+            //string TheBill = "";
+            //DataClasses1DataContext DC = new DataClasses1DataContext();
+            //MonthlyBill Abill = new MonthlyBill();
+            //int rowindex = dgMonthly.CurrentRow.Index;
+            //TheBill = dgMonthly.Rows[rowindex].Cells[0].Value.ToString();
 
-            var update = from b in DC.MonthlyBills
-                         where b.BILL == TheBill
-                         select b;
+            //var update = from b in DC.MonthlyBills
+            //             where b.BILL == TheBill
+            //             select b;
 
-            Abill.BILL = Convert.ToString(dgMonthly.Rows[rowindex].Cells[0].Value);
-            Abill.COST = Convert.ToSingle(dgMonthly.Rows[rowindex].Cells[1].Value);
-            Abill.Date = Convert.ToString(dgMonthly.Rows[rowindex].Cells[2].Value);
-            DC.SubmitChanges(); 
+            //Abill.BILL = Convert.ToString(dgMonthly.Rows[rowindex].Cells[0].Value);
+            //Abill.COST = Convert.ToSingle(dgMonthly.Rows[rowindex].Cells[1].Value);
+            //Abill.Date = Convert.ToString(dgMonthly.Rows[rowindex].Cells[2].Value);
+            //DC.SubmitChanges(); 
 
 
-            DC.MonthlyBills.InsertOnSubmit(Abill);
-            DC.SubmitChanges();
-            MessageBox.Show("Saved");
-            rowindex = 0;
-            Refresh();            
+            //DC.MonthlyBills.InsertOnSubmit(Abill);
+            //DC.MonthlyBills.
+            //DC.SubmitChanges();
+            //MessageBox.Show("Saved");
+            //rowindex = 0;
+            //Refresh();            
         }
 
 
