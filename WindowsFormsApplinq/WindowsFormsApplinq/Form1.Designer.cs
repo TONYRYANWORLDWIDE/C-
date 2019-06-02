@@ -83,9 +83,8 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgMonthly.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgMonthly.RowHeadersWidth = 51;
-            this.dgMonthly.Size = new System.Drawing.Size(350, 566);
+            this.dgMonthly.Size = new System.Drawing.Size(389, 566);
             this.dgMonthly.TabIndex = 0;
-            //this.dgMonthly.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridview1_CellValueChanged);
             // 
             // btnSubmit
             // 
@@ -132,7 +131,6 @@
             this.DatagridKeyBalance.RowTemplate.Height = 24;
             this.DatagridKeyBalance.Size = new System.Drawing.Size(427, 84);
             this.DatagridKeyBalance.TabIndex = 4;
-           
             // 
             // DataGridWeeklyBIlls
             // 
@@ -145,7 +143,6 @@
             this.DataGridWeeklyBIlls.RowTemplate.Height = 24;
             this.DataGridWeeklyBIlls.Size = new System.Drawing.Size(427, 175);
             this.DataGridWeeklyBIlls.TabIndex = 5;
-           
             // 
             // bringHomePayBindingSource
             // 
@@ -163,6 +160,8 @@
             // 
             // dgBringHome
             // 
+            this.dgBringHome.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgBringHome.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dgBringHome.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgBringHome.Location = new System.Drawing.Point(476, 193);
             this.dgBringHome.Name = "dgBringHome";
@@ -170,7 +169,6 @@
             this.dgBringHome.RowTemplate.Height = 24;
             this.dgBringHome.Size = new System.Drawing.Size(427, 177);
             this.dgBringHome.TabIndex = 6;
-            //this.dgBringHome.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgBringHomeValueChanged);
             // 
             // Form1
             // 
