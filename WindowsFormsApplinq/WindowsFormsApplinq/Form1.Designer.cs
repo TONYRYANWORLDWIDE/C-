@@ -85,7 +85,7 @@
             this.dgMonthly.RowHeadersWidth = 51;
             this.dgMonthly.Size = new System.Drawing.Size(350, 566);
             this.dgMonthly.TabIndex = 0;
-            this.dgMonthly.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridview1_CellValueChanged);
+            //this.dgMonthly.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridview1_CellValueChanged);
             // 
             // btnSubmit
             // 
@@ -170,7 +170,7 @@
             this.dgBringHome.RowTemplate.Height = 24;
             this.dgBringHome.Size = new System.Drawing.Size(427, 177);
             this.dgBringHome.TabIndex = 6;
-            this.dgBringHome.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgBringHomeValueChanged);
+            //this.dgBringHome.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgBringHomeValueChanged);
             // 
             // Form1
             // 

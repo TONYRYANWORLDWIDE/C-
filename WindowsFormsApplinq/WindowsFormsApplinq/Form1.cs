@@ -54,68 +54,68 @@ namespace WindowsFormsApplinq
                          select br;
             dgBringHome.DataSource = bringHome.BringHomePays;
         }
-        public void DataGridview1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
-        {
-            //DataClasses1DataContext db = new DataClasses1DataContext();
-            //MonthlyBill Abill = new MonthlyBill();
-            //MessageBox.Show(e.ColumnIndex.ToString());
-            var editedCell = this.dgMonthly.Rows[e.RowIndex].Cells[e.ColumnIndex];
-            var newValue = editedCell.Value;
-            var TheIndex = this.dgMonthly.Rows[e.RowIndex].Cells[0].Value;          
-            var updateTime = from b in DC1.MonthlyBills
-                         where b.BILL == TheIndex.ToString()
-                         select b;
-            foreach (var rowz in updateTime)
+        //public void DataGridview1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        //{
+        //    //DataClasses1DataContext db = new DataClasses1DataContext();
+        //    //MonthlyBill Abill = new MonthlyBill();
+        //    //MessageBox.Show(e.ColumnIndex.ToString());
+        //    var editedCell = this.dgMonthly.Rows[e.RowIndex].Cells[e.ColumnIndex];
+        //    var newValue = editedCell.Value;
+        //    var TheIndex = this.dgMonthly.Rows[e.RowIndex].Cells[0].Value;          
+        //    var updateTime = from b in DC1.MonthlyBills
+        //                 where b.BILL == TheIndex.ToString()
+        //                 select b;
+        //    foreach (var rowz in updateTime)
 
-            {
-                if (e.ColumnIndex.ToString() == "1")
-                {
-                    rowz.COST = (float.Parse(editedCell.Value.ToString()));
-                    //MessageBox.Show("Cost");
-                }
-                else if(e.ColumnIndex.ToString() == "2")
-                {
-                    rowz.Date = (editedCell.Value.ToString());
-                }
+        //    {
+        //        if (e.ColumnIndex.ToString() == "1")
+        //        {
+        //            rowz.COST = (float.Parse(editedCell.Value.ToString()));
+        //            //MessageBox.Show("Cost");
+        //        }
+        //        else if(e.ColumnIndex.ToString() == "2")
+        //        {
+        //            rowz.Date = (editedCell.Value.ToString());
+        //        }
         
-                //DC1.SubmitChanges();
-            }
+        //        //DC1.SubmitChanges();
+        //    }
 
-        }
-        public void dgBringHomeValueChanged(object sender, DataGridViewCellEventArgs e)
-        {
-            DataClasses1DataContext bh = new DataClasses1DataContext();
-            //MonthlyBill Abill = new MonthlyBill();
-            //MessageBox.Show(e.ColumnIndex.ToString());
-            if (e.RowIndex < 0)
-            {
-                return;
-            }
-            var editedCell = this.dgBringHome.Rows[e.RowIndex].Cells[e.ColumnIndex];
-            var newValue = editedCell.Value;
-            var TheIndex = this.dgBringHome.Rows[e.RowIndex].Cells[0].Value;
-            var updateBringHome = from b in DC1.BringHomePays
-                                  where b.Name == TheIndex.ToString()
-                                  select b;
-            foreach (var rowzies in updateBringHome)
+        //}
+        //public void dgBringHomeValueChanged(object sender, DataGridViewCellEventArgs e)
+        //{
+        //    DataClasses1DataContext bh = new DataClasses1DataContext();
+        //    //MonthlyBill Abill = new MonthlyBill();
+        //    //MessageBox.Show(e.ColumnIndex.ToString());
+        //    if (e.RowIndex < 0)
+        //    {
+        //        return;
+        //    }
+        //    var editedCell = this.dgBringHome.Rows[e.RowIndex].Cells[e.ColumnIndex];
+        //    var newValue = editedCell.Value;
+        //    var TheIndex = this.dgBringHome.Rows[e.RowIndex].Cells[0].Value;
+        //    var updateBringHome = from b in DC1.BringHomePays
+        //                          where b.Name == TheIndex.ToString()
+        //                          select b;
+        //    foreach (var rowzies in updateBringHome)
 
-            {
-                if (e.ColumnIndex.ToString() == "0")
-                {
-                    rowzies.Name = (editedCell.Value.ToString());
-                    //MessageBox.Show("Cost");
-                }
-                else if (e.ColumnIndex.ToString() == "1")
-                {
-                    rowzies.Amount = (int.Parse(editedCell.Value.ToString()));
-                }
-            }
-        }
+        //    {
+        //        if (e.ColumnIndex.ToString() == "0")
+        //        {
+        //            rowzies.Name = (editedCell.Value.ToString());
+        //            //MessageBox.Show("Cost");
+        //        }
+        //        else if (e.ColumnIndex.ToString() == "1")
+        //        {
+        //            rowzies.Amount = (int.Parse(editedCell.Value.ToString()));
+        //        }
+        //    }
+        //}
 
 
         public void BtnSubmit_Click(object sender, EventArgs e)
         {
-            DC1.SubmitChanges();
+            //DC1.SubmitChanges();
 
             string TheBill = "";
             DataClasses1DataContext DC = new DataClasses1DataContext();
@@ -177,9 +177,10 @@ namespace WindowsFormsApplinq
             .Single();
             brh.Amount = bh;
             Bringit.SubmitChanges();
+            formload();
 
 
-          
+
         }
 
 
