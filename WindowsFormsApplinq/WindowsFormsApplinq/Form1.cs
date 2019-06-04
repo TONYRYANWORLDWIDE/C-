@@ -20,13 +20,13 @@ namespace WindowsFormsApplinq
     public partial class Form1 : Form
     {
         public DataClasses1DataContext DC1 = new DataClasses1DataContext();
-
+        public int monthlyrows;
         public Form1()
         {
             InitializeComponent();
             formload();
+            monthlyrows = this.dgMonthly.RowCount;
         }
-
         private void formload()
         {
             DataClasses1DataContext db = new DataClasses1DataContext();
@@ -36,21 +36,16 @@ namespace WindowsFormsApplinq
             dgMonthly.DataSource = db.MonthlyBills;
 
             DataClasses2DataContext key = new DataClasses2DataContext();
-            //var keybalance = from k in key.KeyBalances
-            //                     //where b.bill == "dance"
-            //                 select k;
             DatagridKeyBalance.DataSource = key.KeyBalances;
             DatagridKeyBalance.Columns[2].Visible = false;
 
             DataClasses1DataContext week = new DataClasses1DataContext();
             var weekly = from w in week.WeeklyBills
-                             //where b.BILL == "Dance"
                          select w;
             DataGridWeeklyBIlls.DataSource = week.WeeklyBills;
 
             DataClasses1DataContext bringHome = new DataClasses1DataContext();
-            var bh = from br in bringHome.BringHomePays
-                             //where b.BILL == "Dance"
+            var bh = from br in bringHome.BringHomePays                        
                          select br;
             dgBringHome.DataSource = bringHome.BringHomePays;
         }
@@ -82,58 +77,32 @@ namespace WindowsFormsApplinq
         //    }
 
         //}
-        //public void dgBringHomeValueChanged(object sender, DataGridViewCellEventArgs e)
-        //{
-        //    DataClasses1DataContext bh = new DataClasses1DataContext();
-        //    //MonthlyBill Abill = new MonthlyBill();
-        //    //MessageBox.Show(e.ColumnIndex.ToString());
-        //    if (e.RowIndex < 0)
-        //    {
-        //        return;
-        //    }
-        //    var editedCell = this.dgBringHome.Rows[e.RowIndex].Cells[e.ColumnIndex];
-        //    var newValue = editedCell.Value;
-        //    var TheIndex = this.dgBringHome.Rows[e.RowIndex].Cells[0].Value;
-        //    var updateBringHome = from b in DC1.BringHomePays
-        //                          where b.Name == TheIndex.ToString()
-        //                          select b;
-        //    foreach (var rowzies in updateBringHome)
-
-        //    {
-        //        if (e.ColumnIndex.ToString() == "0")
-        //        {
-        //            rowzies.Name = (editedCell.Value.ToString());
-        //            //MessageBox.Show("Cost");
-        //        }
-        //        else if (e.ColumnIndex.ToString() == "1")
-        //        {
-        //            rowzies.Amount = (int.Parse(editedCell.Value.ToString()));
-        //        }
-        //    }
-        //}
-
-
         public void BtnSubmit_Click(object sender, EventArgs e)
         {
-            //DC1.SubmitChanges();
-
             string TheBill = "";
             DataClasses1DataContext DC = new DataClasses1DataContext();
-            MonthlyBill Abill = new MonthlyBill();
-            int rowindex = dgMonthly.CurrentRow.Index;
-            TheBill = dgMonthly.Rows[rowindex].Cells[0].Value.ToString();
+            int newmonthlyrows = DC.MonthlyBills.Count() + 1;
 
-            var update = from b in DC.MonthlyBills
-                         where b.BILL == TheBill
-                         select b;
-            foreach (var row in update)
-
+            if (this.monthlyrows == newmonthlyrows)
             {
-                row.BILL = Convert.ToString(dgMonthly.Rows[rowindex].Cells[0].Value);
-                row.COST = Convert.ToSingle(dgMonthly.Rows[rowindex].Cells[1].Value);
-                row.Date = Convert.ToString(dgMonthly.Rows[rowindex].Cells[2].Value);
-                DC.SubmitChanges();
+                MonthlyBill Abill = new MonthlyBill();
+                int rowindex = dgMonthly.CurrentRow.Index;
+                TheBill = dgMonthly.Rows[rowindex].Cells[0].Value.ToString();
+
+                var update = from b in DC.MonthlyBills
+                             where b.BILL == TheBill
+                             select b;
+                foreach (var row in update)
+
+                {
+                    row.BILL = Convert.ToString(dgMonthly.Rows[rowindex].Cells[0].Value);
+                    row.COST = Convert.ToSingle(dgMonthly.Rows[rowindex].Cells[1].Value);
+                    row.Date = Convert.ToString(dgMonthly.Rows[rowindex].Cells[2].Value);
+                    DC.SubmitChanges();
+                }
             }
+
+           
             float KeyBalanceUpdate;
             DataClasses2DataContext KY = new DataClasses2DataContext();
             KeyBalance KeyB = new KeyBalance();
@@ -148,7 +117,6 @@ namespace WindowsFormsApplinq
             BB.DateTime = DateTime.Now;
             //KY.BankBalance2s.Attach(BB);
             KY.SubmitChanges();
-
 
             string WE = "";
             float amount;
