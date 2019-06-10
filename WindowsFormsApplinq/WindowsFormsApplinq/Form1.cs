@@ -100,6 +100,7 @@ namespace WindowsFormsApplinq
                     row.Date = Convert.ToString(dgMonthly.Rows[rowindex].Cells[2].Value);
                     DC.SubmitChanges();
                 }
+                MessageBox.Show("Monthly Bills Updated");
             }
 
            
@@ -113,11 +114,14 @@ namespace WindowsFormsApplinq
             .Where(c => c.Placeholder == "X")
             .Single();
 
-            BB.KeyBalance1 = KeyBalanceUpdate;
-            BB.DateTime = DateTime.Now;
-            //KY.BankBalance2s.Attach(BB);
-            KY.SubmitChanges();
-
+            if (BB.KeyBalance1 != KeyBalanceUpdate)
+            {
+                BB.DateTime = DateTime.Now;
+                BB.KeyBalance1 = KeyBalanceUpdate;
+                //KY.BankBalance2s.Attach(BB);
+                KY.SubmitChanges();
+                MessageBox.Show("Key Balance Updated");
+            }
             string WE = "";
             float amount;
             DataClasses1DataContext w = new DataClasses1DataContext();
@@ -129,8 +133,13 @@ namespace WindowsFormsApplinq
             WeeklyBill wb = w.WeeklyBills
             .Where(c => c.Bill == WE)
             .Single();
-            wb.Cost = amount;
-            w.SubmitChanges();
+            if (wb.Cost != amount)
+            {
+                wb.Cost = amount;
+                w.SubmitChanges();
+                MessageBox.Show("Weekly BIlls Updated");
+            }
+            
 
             float bh;
             string thename;
@@ -143,8 +152,13 @@ namespace WindowsFormsApplinq
             BringHomePay brh = Bringit.BringHomePays
             .Where(c => c.Name == thename)
             .Single();
-            brh.Amount = bh;
-            Bringit.SubmitChanges();
+            if( brh.Amount != bh)
+            {
+                brh.Amount = bh;
+                Bringit.SubmitChanges();
+                MessageBox.Show("Bring Home Amount Changed");
+            }
+            
             formload();
 
 
