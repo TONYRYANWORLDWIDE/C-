@@ -87,6 +87,11 @@ namespace WindowsFormsApplinq
             {
                 MonthlyBill Abill = new MonthlyBill();
                 int rowindex = dgMonthly.CurrentRow.Index;
+                for(int row = 0;  row < dgMonthly.RowCount -1; row++ )
+                {
+                    TheBill = dgMonthly.Rows[row].Cells[0].Value.ToString();
+                    //MessageBox.Show(TheBill);
+                }
                 TheBill = dgMonthly.Rows[rowindex].Cells[0].Value.ToString();
 
                 var update = from b in DC.MonthlyBills
