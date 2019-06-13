@@ -82,33 +82,36 @@ namespace WindowsFormsApplinq
             string TheBill = "";
             DataClasses1DataContext DC = new DataClasses1DataContext();
             int newmonthlyrows = DC.MonthlyBills.Count() + 1;
-
             if (this.monthlyrows == newmonthlyrows)
             {
                 MonthlyBill Abill = new MonthlyBill();
                 int rowindex = dgMonthly.CurrentRow.Index;
-                for(int row = 0;  row < dgMonthly.RowCount -1; row++ )
-                {
-                    TheBill = dgMonthly.Rows[row].Cells[0].Value.ToString();
-                    //MessageBox.Show(TheBill);
-                }
-                TheBill = dgMonthly.Rows[rowindex].Cells[0].Value.ToString();
-
                 var update = from b in DC.MonthlyBills
-                             where b.BILL == TheBill
+                                 //where b.BILL == TheBill
                              select b;
+                int monthlybillschanged = 0;
                 foreach (var row in update)
-
                 {
-                    row.BILL = Convert.ToString(dgMonthly.Rows[rowindex].Cells[0].Value);
-                    row.COST = Convert.ToSingle(dgMonthly.Rows[rowindex].Cells[1].Value);
-                    row.Date = Convert.ToString(dgMonthly.Rows[rowindex].Cells[2].Value);
-                    DC.SubmitChanges();
+                    for (int rowz = 0; rowz < dgMonthly.RowCount - 1; rowz++)
+                    {
+                        TheBill = dgMonthly.Rows[rowz].Cells[0].Value.ToString();
+                        if (TheBill == row.BILL)
+                        {
+                            if (row.COST != Convert.ToSingle(dgMonthly.Rows[rowz].Cells[1].Value) || row.Date != Convert.ToString(dgMonthly.Rows[rowz].Cells[2].Value))
+                            {
+                                row.COST = Convert.ToSingle(dgMonthly.Rows[rowz].Cells[1].Value);
+                                row.Date = Convert.ToString(dgMonthly.Rows[rowz].Cells[2].Value);
+                                monthlybillschanged++;
+                            }
+                        }
+                    }
                 }
-                MessageBox.Show("Monthly Bills Updated");
-            }
-
-           
+                if (monthlybillschanged > 0)
+                {
+                    DC.SubmitChanges();
+                    MessageBox.Show($"{monthlybillschanged} monthly bill(s) have been updated");
+                }
+            }           
             float KeyBalanceUpdate;
             DataClasses2DataContext KY = new DataClasses2DataContext();
             KeyBalance KeyB = new KeyBalance();
@@ -132,7 +135,6 @@ namespace WindowsFormsApplinq
             DataClasses1DataContext w = new DataClasses1DataContext();
             WeeklyBill we = new WeeklyBill();
             int windex = DataGridWeeklyBIlls.CurrentRow.Index;
-
             WE = DataGridWeeklyBIlls.Rows[windex].Cells[0].Value.ToString();
             amount = float.Parse(DataGridWeeklyBIlls.Rows[windex].Cells[1].Value.ToString());
             WeeklyBill wb = w.WeeklyBills
@@ -144,8 +146,6 @@ namespace WindowsFormsApplinq
                 w.SubmitChanges();
                 MessageBox.Show("Weekly BIlls Updated");
             }
-            
-
             float bh;
             string thename;
             DataClasses1DataContext Bringit = new DataClasses1DataContext();
@@ -157,17 +157,14 @@ namespace WindowsFormsApplinq
             BringHomePay brh = Bringit.BringHomePays
             .Where(c => c.Name == thename)
             .Single();
+
             if( brh.Amount != bh)
             {
                 brh.Amount = bh;
                 Bringit.SubmitChanges();
                 MessageBox.Show("Bring Home Amount Changed");
-            }
-            
+            }            
             formload();
-
-
-
         }
 
 
@@ -191,16 +188,11 @@ namespace WindowsFormsApplinq
             MessageBox.Show("deleted");
             Refresh();            
         }
-
-
-
         private void Form1_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'billsDataSet.BringHomePay' table. You can move, or remove it, as needed.
             this.bringHomePayTableAdapter.Fill(this.billsDataSet.BringHomePay);
-
         }
-
         private void BtInsert_Click(object sender, EventArgs e)
         {
             string TheBill = "";
