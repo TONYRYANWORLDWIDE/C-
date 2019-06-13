@@ -81,8 +81,9 @@ namespace WindowsFormsApplinq
         {
             string TheBill = "";
             DataClasses1DataContext DC = new DataClasses1DataContext();
-            int newmonthlyrows = DC.MonthlyBills.Count() + 1;
-            if (this.monthlyrows == newmonthlyrows)
+            //int newmonthlyrows = DC.MonthlyBills.Count() + 1;
+            int dgrowcount = dgMonthly.RowCount;
+            if (this.monthlyrows == dgrowcount)
             {
                 MonthlyBill Abill = new MonthlyBill();
                 int rowindex = dgMonthly.CurrentRow.Index;
@@ -111,7 +112,15 @@ namespace WindowsFormsApplinq
                     DC.SubmitChanges();
                     MessageBox.Show($"{monthlybillschanged} monthly bill(s) have been updated");
                 }
-            }           
+            }  
+            else if(this.monthlyrows < dgrowcount)
+                {
+                //TODO update table with last row
+                //var xc = dgMonthly.Rows[dgrowcount - 1];
+                //row.COST = Convert.ToSingle(dgMonthly.Rows[rowz].Cells[1].Value);
+                //row.Date = Convert.ToString(dgMonthly.Rows[rowz].Cells[2].Value);
+
+            }
             float KeyBalanceUpdate;
             DataClasses2DataContext KY = new DataClasses2DataContext();
             KeyBalance KeyB = new KeyBalance();
@@ -166,10 +175,6 @@ namespace WindowsFormsApplinq
             }            
             formload();
         }
-
-
-
-
         private void BtDelete_Click(object sender, EventArgs e)
         {
             string TheBill = "";
@@ -201,9 +206,9 @@ namespace WindowsFormsApplinq
             int rowindex = dgMonthly.CurrentRow.Index;
             TheBill = dgMonthly.Rows[rowindex].Cells[0].Value.ToString();
 
-            var update = from b in DC.MonthlyBills
-                         where b.BILL == TheBill
-                         select b;
+            //var update = from b in DC.MonthlyBills
+            //             where b.BILL == TheBill
+            //             select b;
 
             Abill.BILL = Convert.ToString(dgMonthly.Rows[rowindex].Cells[0].Value);
             Abill.COST = Convert.ToSingle(dgMonthly.Rows[rowindex].Cells[1].Value);
