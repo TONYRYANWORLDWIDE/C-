@@ -14,7 +14,6 @@ using Microsoft.SqlServer.Management.IntegrationServices;
 using System.Data.SqlClient;
 using Microsoft.SqlServer;
 
-
 namespace WindowsFormsApplinq
 {
     public partial class Form1 : Form
@@ -49,34 +48,6 @@ namespace WindowsFormsApplinq
                          select br;
             dgBringHome.DataSource = bringHome.BringHomePays;
         }
-        //public void DataGridview1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
-        //{
-        //    //DataClasses1DataContext db = new DataClasses1DataContext();
-        //    //MonthlyBill Abill = new MonthlyBill();
-        //    //MessageBox.Show(e.ColumnIndex.ToString());
-        //    var editedCell = this.dgMonthly.Rows[e.RowIndex].Cells[e.ColumnIndex];
-        //    var newValue = editedCell.Value;
-        //    var TheIndex = this.dgMonthly.Rows[e.RowIndex].Cells[0].Value;          
-        //    var updateTime = from b in DC1.MonthlyBills
-        //                 where b.BILL == TheIndex.ToString()
-        //                 select b;
-        //    foreach (var rowz in updateTime)
-
-        //    {
-        //        if (e.ColumnIndex.ToString() == "1")
-        //        {
-        //            rowz.COST = (float.Parse(editedCell.Value.ToString()));
-        //            //MessageBox.Show("Cost");
-        //        }
-        //        else if(e.ColumnIndex.ToString() == "2")
-        //        {
-        //            rowz.Date = (editedCell.Value.ToString());
-        //        }
-        
-        //        //DC1.SubmitChanges();
-        //    }
-
-        //}
         public void BtnSubmit_Click(object sender, EventArgs e)
         {
             string TheBill = "";
@@ -87,7 +58,6 @@ namespace WindowsFormsApplinq
                 MonthlyBill Abill = new MonthlyBill();
                 int rowindex = dgMonthly.CurrentRow.Index;
                 var update = from b in DC.MonthlyBills
-                                 //where b.BILL == TheBill
                              select b;
                 int monthlybillschanged = 0;
                 foreach (var row in update)
@@ -166,10 +136,6 @@ namespace WindowsFormsApplinq
             }            
             formload();
         }
-
-
-
-
         private void BtDelete_Click(object sender, EventArgs e)
         {
             string TheBill = "";
@@ -209,7 +175,6 @@ namespace WindowsFormsApplinq
             Abill.COST = Convert.ToSingle(dgMonthly.Rows[rowindex].Cells[1].Value);
             Abill.Date = Convert.ToString(dgMonthly.Rows[rowindex].Cells[2].Value);
             DC.SubmitChanges();
-
             DC.MonthlyBills.InsertOnSubmit(Abill);    
             DC.SubmitChanges();
             MessageBox.Show("Saved");
