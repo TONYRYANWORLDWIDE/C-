@@ -52,9 +52,9 @@ namespace WindowsFormsApplinq
         {
             string TheBill = "";
             DataClasses1DataContext DC = new DataClasses1DataContext();
-            //int newmonthlyrows = DC.MonthlyBills.Count() + 1;
+            int newmonthlyrows = DC.MonthlyBills.Count() + 1;
             int dgrowcount = dgMonthly.RowCount;
-            if (this.monthlyrows == dgrowcount)
+            if (newmonthlyrows == dgrowcount)
             {
                 MonthlyBill Abill = new MonthlyBill();
                 int rowindex = dgMonthly.CurrentRow.Index;
@@ -83,7 +83,7 @@ namespace WindowsFormsApplinq
                     MessageBox.Show($"{monthlybillschanged} monthly bill(s) have been updated");
                 }
             }  
-            else if(this.monthlyrows < dgrowcount)
+            else if(newmonthlyrows < dgrowcount)
                 {
 
                 var xc = dgMonthly.Rows[dgrowcount - 1];
@@ -107,7 +107,7 @@ namespace WindowsFormsApplinq
 
             }
 
-            else if (this.monthlyrows > dgrowcount)
+            else if (newmonthlyrows > dgrowcount)
             {
                 int found = 0;
                 string DeleteBill = "";
@@ -138,7 +138,7 @@ namespace WindowsFormsApplinq
 
                         DC.MonthlyBills.DeleteAllOnSubmit(delete);
                         DC.SubmitChanges();
-                        MessageBox.Show($"deleted{DeleteBill}");
+                        MessageBox.Show($"deleted {DeleteBill}");
                         Refresh();
                     }
 
