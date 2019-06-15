@@ -52,8 +52,9 @@ namespace WindowsFormsApplinq
         {
             string TheBill = "";
             DataClasses1DataContext DC = new DataClasses1DataContext();
-            int newmonthlyrows = DC.MonthlyBills.Count() + 1;
-            if (this.monthlyrows == newmonthlyrows)
+            //int newmonthlyrows = DC.MonthlyBills.Count() + 1;
+            int dgrowcount = dgMonthly.RowCount;
+            if (this.monthlyrows == dgrowcount)
             {
                 MonthlyBill Abill = new MonthlyBill();
                 int rowindex = dgMonthly.CurrentRow.Index;
@@ -81,8 +82,86 @@ namespace WindowsFormsApplinq
                     DC.SubmitChanges();
                     MessageBox.Show($"{monthlybillschanged} monthly bill(s) have been updated");
                 }
-            }           
-            float KeyBalanceUpdate;
+            }  
+            else if(this.monthlyrows < dgrowcount)
+                {
+
+                var xc = dgMonthly.Rows[dgrowcount - 1];
+
+                MonthlyBill Abill = new MonthlyBill();
+                int rowindex = dgMonthly.CurrentRow.Index;
+                TheBill = dgMonthly.Rows[rowindex].Cells[0].Value.ToString();
+
+
+
+                Abill.BILL = Convert.ToString(dgMonthly.Rows[rowindex].Cells[0].Value);
+                Abill.COST = Convert.ToSingle(dgMonthly.Rows[rowindex].Cells[1].Value);
+                Abill.Date = Convert.ToString(dgMonthly.Rows[rowindex].Cells[2].Value);
+                //DC.SubmitChanges();
+
+                DC.MonthlyBills.InsertOnSubmit(Abill);
+                DC.SubmitChanges();
+                MessageBox.Show($"{Abill.BILL} added to Monthly Bills");
+                //rowindex = 0;
+                Refresh();
+
+            }
+
+            else if (this.monthlyrows > dgrowcount)
+            {
+                int found = 0;
+                string DeleteBill = "";
+                foreach(var fg in DC.MonthlyBills)
+                {
+                    found = 0;
+                    string BillLookup = fg.BILL;
+                    foreach(DataGridViewRow dg in dgMonthly.Rows)
+                    {
+                        //var b = dg[0].Cells[0].Value;
+                        string wwww = Convert.ToString(dg.Cells[0].Value);
+                        if (BillLookup == wwww)
+                        {
+                            found = 1;
+                            break;
+                        }
+                        else
+                        {
+                            continue;
+                        }                      
+                    }
+                    if (found == 0)
+                    {
+                        DeleteBill = BillLookup;
+                        var delete = from b in DC.MonthlyBills
+                                     where b.BILL == DeleteBill
+                                     select b;
+
+                        DC.MonthlyBills.DeleteAllOnSubmit(delete);
+                        DC.SubmitChanges();
+                        MessageBox.Show($"deleted{DeleteBill}");
+                        Refresh();
+                    }
+
+                }
+
+                ////string TheBill = "";
+                ////DataClasses1DataContext DC = new DataClasses1DataContext();
+                //MonthlyBill Abill = new MonthlyBill();
+                //int rowindex = dgMonthly.CurrentRow.Index;
+                //TheBill = dgMonthly.Rows[rowindex].Cells[0].Value.ToString();
+
+                //var delete = from b in DC.MonthlyBills
+                //             where b.BILL == TheBill
+                //             select b;
+
+                //DC.MonthlyBills.DeleteAllOnSubmit(delete);
+                //DC.SubmitChanges();
+                //rowindex = 0;
+                //MessageBox.Show("deleted");
+                //Refresh();
+            }
+
+                float KeyBalanceUpdate;
             DataClasses2DataContext KY = new DataClasses2DataContext();
             KeyBalance KeyB = new KeyBalance();
             int rowindexKey = DatagridKeyBalance.CurrentRow.Index;
@@ -167,9 +246,9 @@ namespace WindowsFormsApplinq
             int rowindex = dgMonthly.CurrentRow.Index;
             TheBill = dgMonthly.Rows[rowindex].Cells[0].Value.ToString();
 
-            var update = from b in DC.MonthlyBills
-                         where b.BILL == TheBill
-                         select b;
+            //var update = from b in DC.MonthlyBills
+            //             where b.BILL == TheBill
+            //             select b;
 
             Abill.BILL = Convert.ToString(dgMonthly.Rows[rowindex].Cells[0].Value);
             Abill.COST = Convert.ToSingle(dgMonthly.Rows[rowindex].Cells[1].Value);
