@@ -1,13 +1,13 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Bills" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Bills;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False" SettingsObjectName="WindowsFormsApplinq.Properties.Settings" SettingsPropertyName="BillsConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.MonthlyBills" Member="MonthlyBills">
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="TRBills" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=trbillsapp.database.windows.net;Initial Catalog=TRBills;User ID=tonyryan;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False" SettingsObjectName="WindowsFormsApplinq.Properties.Settings" SettingsPropertyName="TRBillsConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.MonthlyBill" Member="MonthlyBills">
     <Type Name="MonthlyBill">
-      <Column Name="BILL" AutoSync="OnUpdate" Type="System.String" DbType="VarChar(50)" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="COST" AutoSync="OnUpdate" Type="System.Single" DbType="Real" CanBeNull="false" />
-      <Column Name="Date" AutoSync="OnUpdate" Type="System.String" DbType="VarChar(2)" CanBeNull="false" />
+      <Column Name="BILL" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="COST" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="Date" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.WeeklyBills" Member="WeeklyBills">
+  <Table Name="dbo.WeeklyBill" Member="WeeklyBills">
     <Type Name="WeeklyBill">
       <Column Name="Bill" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="Cost" Type="System.Single" DbType="Real" CanBeNull="true" />

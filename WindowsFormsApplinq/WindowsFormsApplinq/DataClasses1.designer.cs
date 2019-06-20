@@ -22,7 +22,7 @@ namespace WindowsFormsApplinq
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="Bills")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="TRBills")]
 	public partial class DataClasses1DataContext : System.Data.Linq.DataContext
 	{
 		
@@ -42,7 +42,7 @@ namespace WindowsFormsApplinq
     #endregion
 		
 		public DataClasses1DataContext() : 
-				base(global::WindowsFormsApplinq.Properties.Settings.Default.BillsConnectionString, mappingSource)
+				base(global::WindowsFormsApplinq.Properties.Settings.Default.TRBillsConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -96,7 +96,7 @@ namespace WindowsFormsApplinq
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.MonthlyBills")]
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.MonthlyBill")]
 	public partial class MonthlyBill : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
@@ -104,7 +104,7 @@ namespace WindowsFormsApplinq
 		
 		private string _BILL;
 		
-		private float _COST;
+		private System.Nullable<float> _COST;
 		
 		private string _Date;
 		
@@ -114,7 +114,7 @@ namespace WindowsFormsApplinq
     partial void OnCreated();
     partial void OnBILLChanging(string value);
     partial void OnBILLChanged();
-    partial void OnCOSTChanging(float value);
+    partial void OnCOSTChanging(System.Nullable<float> value);
     partial void OnCOSTChanged();
     partial void OnDateChanging(string value);
     partial void OnDateChanged();
@@ -125,7 +125,7 @@ namespace WindowsFormsApplinq
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BILL", AutoSync=AutoSync.OnUpdate, DbType="VarChar(50)", CanBeNull=false, IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BILL", DbType="VarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
 		public string BILL
 		{
 			get
@@ -145,8 +145,8 @@ namespace WindowsFormsApplinq
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COST", AutoSync=AutoSync.OnUpdate, DbType="Real")]
-		public float COST
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COST", DbType="Real")]
+		public System.Nullable<float> COST
 		{
 			get
 			{
@@ -165,7 +165,7 @@ namespace WindowsFormsApplinq
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", AutoSync=AutoSync.OnUpdate, DbType="VarChar(2)", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="VarChar(2)")]
 		public string Date
 		{
 			get
@@ -206,7 +206,7 @@ namespace WindowsFormsApplinq
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.WeeklyBills")]
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.WeeklyBill")]
 	public partial class WeeklyBill : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
@@ -300,7 +300,7 @@ namespace WindowsFormsApplinq
 		
 		private string _Name;
 		
-		private System.Nullable<float> _Amount;
+		private System.Nullable<decimal> _Amount;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -308,7 +308,7 @@ namespace WindowsFormsApplinq
     partial void OnCreated();
     partial void OnNameChanging(string value);
     partial void OnNameChanged();
-    partial void OnAmountChanging(System.Nullable<float> value);
+    partial void OnAmountChanging(System.Nullable<decimal> value);
     partial void OnAmountChanged();
     #endregion
 		
@@ -338,7 +338,7 @@ namespace WindowsFormsApplinq
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Amount", DbType="Decimal(18,2)")]
-		public System.Nullable<float> Amount
+		public System.Nullable<decimal> Amount
 		{
 			get
 			{

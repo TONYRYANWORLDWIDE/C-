@@ -44,8 +44,8 @@ namespace WindowsFormsApplinq
             DataGridWeeklyBIlls.DataSource = week.WeeklyBills;
 
             DataClasses1DataContext bringHome = new DataClasses1DataContext();
-            var bh = from br in bringHome.BringHomePays                        
-                         select br;
+            var bh = from br in bringHome.BringHomePays
+                     select br;
             dgBringHome.DataSource = bringHome.BringHomePays;
         }
         public void BtnSubmit_Click(object sender, EventArgs e)
@@ -195,19 +195,19 @@ namespace WindowsFormsApplinq
                 w.SubmitChanges();
                 MessageBox.Show("Weekly BIlls Updated");
             }
-            float bh;
+            decimal bh;
             string thename;
             DataClasses1DataContext Bringit = new DataClasses1DataContext();
             BringHomePay BRHOME = new BringHomePay();
             int bindex = dgBringHome.CurrentRow.Index;
 
             thename = dgBringHome.Rows[bindex].Cells[0].Value.ToString();
-            bh = float.Parse(dgBringHome.Rows[bindex].Cells[1].Value.ToString());
+            bh = Decimal.Parse(dgBringHome.Rows[bindex].Cells[1].Value.ToString());
             BringHomePay brh = Bringit.BringHomePays
             .Where(c => c.Name == thename)
             .Single();
 
-            if( brh.Amount != bh)
+            if(brh.Amount != bh)
             {
                 brh.Amount = bh;
                 Bringit.SubmitChanges();
