@@ -17,3 +17,4 @@ C:\Users\tonyr\Desktop\Self Education\Csharp\CSharp\CSharp\WindowsFormsApplinq\W
 C:\Users\tonyr\Desktop\Self Education\Csharp\CSharp\CSharp\WindowsFormsApplinq\WindowsFormsApplinq\obj\Debug\WindowsFormsApplinq.csproj.CopyComplete
 C:\Users\tonyr\Desktop\Self Education\Csharp\CSharp\CSharp\WindowsFormsApplinq\WindowsFormsApplinq\obj\Debug\WindowsFormsApplinq.exe
 C:\Users\tonyr\Desktop\Self Education\Csharp\CSharp\CSharp\WindowsFormsApplinq\WindowsFormsApplinq\obj\Debug\WindowsFormsApplinq.pdb
+C:\Users\tonyr\Desktop\Self Education\Csharp\CSharp\CSharp\WindowsFormsApplinq\WindowsFormsApplinq\obj\Debug\WindowsFormsApplinq.csprojAssemblyReference.cache
