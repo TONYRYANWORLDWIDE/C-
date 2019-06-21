@@ -176,6 +176,7 @@
     <Compile Include="Models\MonthlyBill.cs">
       <DependentUpon>WebServiceModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\TRBillsEntities.cs" />
     <Compile Include="Models\WebServiceModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
