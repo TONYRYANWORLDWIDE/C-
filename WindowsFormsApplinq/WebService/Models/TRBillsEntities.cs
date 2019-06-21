@@ -10,6 +10,7 @@ namespace WebService.Models
         public TRBillsEntities(string password)
             : base("name = TRBillsEntities")
         {
+            this.Database.Connection.ConnectionString += $";Password = {password}";
         }
 
     }

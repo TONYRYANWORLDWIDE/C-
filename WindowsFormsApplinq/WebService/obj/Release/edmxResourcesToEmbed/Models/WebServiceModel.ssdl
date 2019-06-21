@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TRBillsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="BringHomePay">
+    <Key>
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Amount" Type="numeric" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="KeyBalance">
+    <Key>
+      <PropertyRef Name="Placeholder" />
+    </Key>
+    <Property Name="KeyBalance" Type="real" />
+    <Property Name="DateTime" Type="datetime" />
+    <Property Name="Placeholder" Type="varchar" MaxLength="1" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MonthlyBill">
+    <Key>
+      <PropertyRef Name="BILL" />
+    </Key>
+    <Property Name="BILL" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="COST" Type="real" />
+    <Property Name="Date" Type="varchar" MaxLength="2" />
+  </EntityType>
+  <EntityType Name="WeeklyBill">
+    <Key>
+      <PropertyRef Name="Bill" />
+    </Key>
+    <Property Name="Bill" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Cost" Type="real" />
+  </EntityType>
+  <EntityContainer Name="TRBillsModelStoreContainer">
+    <EntitySet Name="BringHomePay" EntityType="Self.BringHomePay" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KeyBalance" EntityType="Self.KeyBalance" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MonthlyBill" EntityType="Self.MonthlyBill" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WeeklyBill" EntityType="Self.WeeklyBill" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
