@@ -18,3 +18,11 @@ C:\Users\tonyr\Desktop\Self Education\Csharp\CSharp\CSharp\WindowsFormsApplinq\W
 C:\Users\tonyr\Desktop\Self Education\Csharp\CSharp\CSharp\WindowsFormsApplinq\WindowsFormsApplinq\bin\Release\Microsoft.SqlServer.DTSPipelineWrap.dll
 C:\Users\tonyr\Desktop\Self Education\Csharp\CSharp\CSharp\WindowsFormsApplinq\WindowsFormsApplinq\obj\Release\WindowsFormsApplinq.exe.config
 C:\Users\tonyr\Desktop\Self Education\Csharp\CSharp\CSharp\WindowsFormsApplinq\WindowsFormsApplinq\obj\Release\WindowsFormsApplinq.csproj.CopyComplete
+C:\Users\tonyr\Desktop\Self Education\Csharp\CSharp\CSharp\WindowsFormsApplinq\WindowsFormsApplinq\bin\Release\WindowsFormsApplinq.exe.manifest
+C:\Users\tonyr\Desktop\Self Education\Csharp\CSharp\CSharp\WindowsFormsApplinq\WindowsFormsApplinq\bin\Release\WindowsFormsApplinq.application
+C:\Users\tonyr\Desktop\Self Education\Csharp\CSharp\CSharp\WindowsFormsApplinq\WindowsFormsApplinq\obj\Release\WindowsFormsApplinq.exe.manifest
+C:\Users\tonyr\Desktop\Self Education\Csharp\CSharp\CSharp\WindowsFormsApplinq\WindowsFormsApplinq\obj\Release\WindowsFormsApplinq.application
+C:\Users\tonyr\Desktop\Self Education\Csharp\CSharp\CSharp\WindowsFormsApplinq\WindowsFormsApplinq\bin\Release\Newtonsoft.Json.dll
+C:\Users\tonyr\Desktop\Self Education\Csharp\CSharp\CSharp\WindowsFormsApplinq\WindowsFormsApplinq\bin\Release\System.Net.Http.Formatting.dll
+C:\Users\tonyr\Desktop\Self Education\Csharp\CSharp\CSharp\WindowsFormsApplinq\WindowsFormsApplinq\bin\Release\Newtonsoft.Json.xml
+C:\Users\tonyr\Desktop\Self Education\Csharp\CSharp\CSharp\WindowsFormsApplinq\WindowsFormsApplinq\bin\Release\System.Net.Http.Formatting.xml

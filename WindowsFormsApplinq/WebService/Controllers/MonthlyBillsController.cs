@@ -31,10 +31,8 @@ namespace WebService.Controllers
             {
                 return NotFound();
             }
-
             return Ok(monthlyBill);
         }
-
         // PUT: api/MonthlyBills/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutMonthlyBill(string id, MonthlyBill monthlyBill)

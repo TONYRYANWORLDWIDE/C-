@@ -13,6 +13,10 @@ using Microsoft.SqlServer.Dts.Tasks;
 using Microsoft.SqlServer.Management.IntegrationServices;
 using System.Data.SqlClient;
 using Microsoft.SqlServer;
+using System.Net;
+using System.Web.Script.Serialization;
+using System.Net.Http;
+using System.Net.Http.Headers;
 
 namespace WindowsFormsApplinq
 {
@@ -24,6 +28,8 @@ namespace WindowsFormsApplinq
         {
             InitializeComponent();
             formload();
+            //getapi ApiTime = new getapi();
+            //ApiTime.ShowBills();
             monthlyrows = this.dgMonthly.RowCount;
         }
         private void formload()
@@ -82,9 +88,9 @@ namespace WindowsFormsApplinq
                     DC.SubmitChanges();
                     MessageBox.Show($"{monthlybillschanged} monthly bill(s) have been updated");
                 }
-            }  
-            else if(newmonthlyrows < dgrowcount)
-                {
+            }
+            else if (newmonthlyrows < dgrowcount)
+            {
 
                 var xc = dgMonthly.Rows[dgrowcount - 1];
 
@@ -111,11 +117,11 @@ namespace WindowsFormsApplinq
             {
                 int found = 0;
                 string DeleteBill = "";
-                foreach(var fg in DC.MonthlyBills)
+                foreach (var fg in DC.MonthlyBills)
                 {
                     found = 0;
                     string BillLookup = fg.BILL;
-                    foreach(DataGridViewRow dg in dgMonthly.Rows)
+                    foreach (DataGridViewRow dg in dgMonthly.Rows)
                     {
                         //var b = dg[0].Cells[0].Value;
                         string wwww = Convert.ToString(dg.Cells[0].Value);
@@ -127,7 +133,7 @@ namespace WindowsFormsApplinq
                         else
                         {
                             continue;
-                        }                      
+                        }
                     }
                     if (found == 0)
                     {
@@ -161,7 +167,7 @@ namespace WindowsFormsApplinq
                 //Refresh();
             }
 
-                float KeyBalanceUpdate;
+            float KeyBalanceUpdate;
             DataClasses2DataContext KY = new DataClasses2DataContext();
             KeyBalance KeyB = new KeyBalance();
             int rowindexKey = DatagridKeyBalance.CurrentRow.Index;
@@ -207,12 +213,12 @@ namespace WindowsFormsApplinq
             .Where(c => c.Name == thename)
             .Single();
 
-            if(brh.Amount != bh)
+            if (brh.Amount != bh)
             {
                 brh.Amount = bh;
                 Bringit.SubmitChanges();
                 MessageBox.Show("Bring Home Amount Changed");
-            }            
+            }
             formload();
         }
         private void BtDelete_Click(object sender, EventArgs e)
@@ -231,7 +237,7 @@ namespace WindowsFormsApplinq
             DC.SubmitChanges();
             rowindex = 0;
             MessageBox.Show("deleted");
-            Refresh();            
+            Refresh();
         }
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -254,11 +260,82 @@ namespace WindowsFormsApplinq
             Abill.COST = Convert.ToSingle(dgMonthly.Rows[rowindex].Cells[1].Value);
             Abill.Date = Convert.ToString(dgMonthly.Rows[rowindex].Cells[2].Value);
             DC.SubmitChanges();
-            DC.MonthlyBills.InsertOnSubmit(Abill);    
+            DC.MonthlyBills.InsertOnSubmit(Abill);
             DC.SubmitChanges();
             MessageBox.Show("Saved");
             rowindex = 0;
             Refresh();
         }
     }
+    public class MonthlyBill2
+    {
+        public string Bill { get; set; }
+        public decimal Cost { get; set; }
+        public string Date { get; set; }
+    }
+    //public class getapi
+    //{
+    //    public static HttpClient client = new HttpClient();
+
+    //    public static void ShowBills(MonthlyBill2 MB)
+    //    {
+    //        Console.WriteLine($"Bill: {MB.Bill}\tCost: " +
+    //            $"{MB.Cost}\tDate: {MB.Date}");
+    //    }
+
+    //    static async Task<Uri> CreateBillAsync(MonthlyBill2 MB)
+    //    {
+    //        HttpResponseMessage response = await client.PostAsJsonAsync(
+    //            "api/MonthlyBills", MB);
+    //        response.EnsureSuccessStatusCode();
+
+    //        // return URI of the created resource.
+    //        return response.Headers.Location;
+    //    }
+
+    //    static async Task RunAsync()
+    //    {
+    //        // Update port # in the following line.
+    //        client.BaseAddress = new Uri("http://localhost:50000/");
+    //        client.DefaultRequestHeaders.Accept.Clear();
+    //        client.DefaultRequestHeaders.Accept.Add(
+    //            new MediaTypeWithQualityHeaderValue("application/json"));
+
+    //        try
+    //        {
+    //            // Create a new product
+    //            MonthlyBill2 MB = new MonthlyBill2
+    //            {
+    //                Bill = "Gizmo",
+    //                Cost = 100,
+    //                Date = "29"
+    //            };
+
+    //            var url = await CreateBillAsync(MB);
+    //            //Console.WriteLine($"Created at {url}");
+
+    //            //Get the product
+    //           MB = await CreateBillAsync(url.PathAndQuery);
+    //            ShowBills(MB);
+
+    //            // Update the product
+    //            //Console.WriteLine("Updating price...");
+    //            //MB.Cost = 80;
+    //            //await UpdateBillAsync(MB);
+
+    //            //// Get the updated product
+    //            //MB = await CreateBillAsync(url.PathAndQuery);
+    //            //ShowBills(MB);
+
+    //            //// Delete the product
+    //            //var statusCode = await DeleteBillAsync(MB.Bill);
+    //            //Console.WriteLine($"Deleted (HTTP Status = {(int)statusCode})");
+
+    //        }
+    //        catch (Exception e)
+    //        {
+    //            Console.WriteLine(e.Message);
+    //        }
+    //    }
+    //}
 }
