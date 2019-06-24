@@ -18,3 +18,15 @@ C:\Users\tonyr\Desktop\Self Education\Csharp\CSharp\CSharp\WindowsFormsApplinq\W
 C:\Users\tonyr\Desktop\Self Education\Csharp\CSharp\CSharp\WindowsFormsApplinq\WindowsFormsApplinq\obj\Debug\WindowsFormsApplinq.exe
 C:\Users\tonyr\Desktop\Self Education\Csharp\CSharp\CSharp\WindowsFormsApplinq\WindowsFormsApplinq\obj\Debug\WindowsFormsApplinq.pdb
 C:\Users\tonyr\Desktop\Self Education\Csharp\CSharp\CSharp\WindowsFormsApplinq\WindowsFormsApplinq\obj\Debug\WindowsFormsApplinq.csprojAssemblyReference.cache
+C:\Users\tonyr\Desktop\Self Education\Csharp\CSharp\CSharp\WindowsFormsApplinq\WindowsFormsApplinq\bin\Debug\WindowsFormsApplinq.exe.manifest
+C:\Users\tonyr\Desktop\Self Education\Csharp\CSharp\CSharp\WindowsFormsApplinq\WindowsFormsApplinq\bin\Debug\WindowsFormsApplinq.application
+C:\Users\tonyr\Desktop\Self Education\Csharp\CSharp\CSharp\WindowsFormsApplinq\WindowsFormsApplinq\bin\Debug\EntityFramework.dll
+C:\Users\tonyr\Desktop\Self Education\Csharp\CSharp\CSharp\WindowsFormsApplinq\WindowsFormsApplinq\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\tonyr\Desktop\Self Education\Csharp\CSharp\CSharp\WindowsFormsApplinq\WindowsFormsApplinq\bin\Debug\Newtonsoft.Json.dll
+C:\Users\tonyr\Desktop\Self Education\Csharp\CSharp\CSharp\WindowsFormsApplinq\WindowsFormsApplinq\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\tonyr\Desktop\Self Education\Csharp\CSharp\CSharp\WindowsFormsApplinq\WindowsFormsApplinq\bin\Debug\EntityFramework.xml
+C:\Users\tonyr\Desktop\Self Education\Csharp\CSharp\CSharp\WindowsFormsApplinq\WindowsFormsApplinq\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\tonyr\Desktop\Self Education\Csharp\CSharp\CSharp\WindowsFormsApplinq\WindowsFormsApplinq\bin\Debug\Newtonsoft.Json.xml
+C:\Users\tonyr\Desktop\Self Education\Csharp\CSharp\CSharp\WindowsFormsApplinq\WindowsFormsApplinq\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\tonyr\Desktop\Self Education\Csharp\CSharp\CSharp\WindowsFormsApplinq\WindowsFormsApplinq\obj\Debug\WindowsFormsApplinq.exe.manifest
+C:\Users\tonyr\Desktop\Self Education\Csharp\CSharp\CSharp\WindowsFormsApplinq\WindowsFormsApplinq\obj\Debug\WindowsFormsApplinq.application

@@ -22,7 +22,7 @@ namespace WindowsFormsApplinq
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="Bills")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="TRBills")]
 	public partial class DataClasses2DataContext : System.Data.Linq.DataContext
 	{
 		
@@ -36,7 +36,7 @@ namespace WindowsFormsApplinq
     #endregion
 		
 		public DataClasses2DataContext() : 
-				base(global::WindowsFormsApplinq.Properties.Settings.Default.BillsConnectionString, mappingSource)
+				base(global::WindowsFormsApplinq.Properties.Settings.Default.TRBillsConnectionString, mappingSource)
 		{
 			OnCreated();
 		}

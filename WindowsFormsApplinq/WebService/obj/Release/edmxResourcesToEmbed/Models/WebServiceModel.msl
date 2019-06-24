@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TRBillsModelStoreContainer" CdmEntityContainer="TRBillsEntities">
+    <EntitySetMapping Name="BringHomePays">
+      <EntityTypeMapping TypeName="TRBillsModel.BringHomePay">
+        <MappingFragment StoreEntitySet="BringHomePay">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KeyBalances">
+      <EntityTypeMapping TypeName="TRBillsModel.KeyBalance">
+        <MappingFragment StoreEntitySet="KeyBalance">
+          <ScalarProperty Name="KeyBalance1" ColumnName="KeyBalance" />
+          <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+          <ScalarProperty Name="Placeholder" ColumnName="Placeholder" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MonthlyBills">
+      <EntityTypeMapping TypeName="TRBillsModel.MonthlyBill">
+        <MappingFragment StoreEntitySet="MonthlyBill">
+          <ScalarProperty Name="BILL" ColumnName="BILL" />
+          <ScalarProperty Name="COST" ColumnName="COST" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WeeklyBills">
+      <EntityTypeMapping TypeName="TRBillsModel.WeeklyBill">
+        <MappingFragment StoreEntitySet="WeeklyBill">
+          <ScalarProperty Name="Bill" ColumnName="Bill" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
