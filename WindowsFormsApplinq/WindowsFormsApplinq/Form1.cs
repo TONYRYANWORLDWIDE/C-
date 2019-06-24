@@ -37,10 +37,6 @@ namespace WindowsFormsApplinq
             DataClasses1DataContext db = new DataClasses1DataContext();
             var Bills = from b in db.MonthlyBills
                             select b;
-                           
-                        //select new { b.BILL, b.COST , b.Date};
- 
-
             dgMonthly.DataSource = db.MonthlyBills;
 
             DataClasses2DataContext key = new DataClasses2DataContext();
