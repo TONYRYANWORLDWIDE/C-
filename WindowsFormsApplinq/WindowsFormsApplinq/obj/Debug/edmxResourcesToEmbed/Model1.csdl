@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TRBillsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="BringHomePay">
+    <Key>
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Amount" Type="Decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="KeyBalance">
+    <Key>
+      <PropertyRef Name="Placeholder" />
+    </Key>
+    <Property Name="KeyBalance1" Type="Single" />
+    <Property Name="DateTime" Type="DateTime" Precision="3" />
+    <Property Name="Placeholder" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MonthlyBill">
+    <Key>
+      <PropertyRef Name="BILL" />
+    </Key>
+    <Property Name="BILL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="COST" Type="Single" />
+    <Property Name="Date" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="WeeklyBill">
+    <Key>
+      <PropertyRef Name="Bill" />
+    </Key>
+    <Property Name="Bill" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Cost" Type="Single" />
+  </EntityType>
+  <EntityContainer Name="TRBillsEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BringHomePays" EntityType="Self.BringHomePay" />
+    <EntitySet Name="KeyBalances" EntityType="Self.KeyBalance" />
+    <EntitySet Name="MonthlyBills" EntityType="Self.MonthlyBill" />
+    <EntitySet Name="WeeklyBills" EntityType="Self.WeeklyBill" />
+  </EntityContainer>
+</Schema>
