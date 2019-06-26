@@ -30,7 +30,7 @@
     <Property Name="Bill" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Cost" Type="Single" />
   </EntityType>
-  <EntityContainer Name="TRBillsEntities" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="TRBillsEntities1" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="BringHomePays" EntityType="Self.BringHomePay" />
     <EntitySet Name="KeyBalances" EntityType="Self.KeyBalance" />
     <EntitySet Name="MonthlyBills" EntityType="Self.MonthlyBill" />

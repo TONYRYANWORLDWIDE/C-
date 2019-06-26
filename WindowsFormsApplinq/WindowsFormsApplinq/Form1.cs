@@ -55,6 +55,9 @@ namespace WindowsFormsApplinq
         }
         public void BtnSubmit_Click(object sender, EventArgs e)
         {
+
+            MonthlyBills v = new MonthlyBills();
+
             string TheBill = "";
             DataClasses1DataContext DC = new DataClasses1DataContext();
             int newmonthlyrows = DC.MonthlyBills.Count() + 1;
